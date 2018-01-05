@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"strict": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"declaration": true,
+		"jsx": "react",
+		"jsxFactory": "h",
+		"outDir": "./lib",
+		"rootDir": ".",
+		"sourceMap": true
+	},
+	"include": [
+		"./src",
+		"./test"
+	],
+	"exclude": [
+		"node_modules",
+		"lib"
+	]
+}

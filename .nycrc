@@ -1,0 +1,20 @@
+{
+	"extension": [
+		".ts",
+		".tsx"
+	],
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"**/*.d.ts"
+	],
+	"require": [
+		"ts-node/register"
+	],
+	"reporter": [
+		"html"
+	],
+	"all": true,
+	"cache": true
+}

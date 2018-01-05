@@ -1,0 +1,48 @@
+{
+    "name": "spiel",
+    "version": "0.0.1",
+    "description": "Spiel Framework Frontend",
+    "main": "lib/src/index.js",
+    "types": "lib/src/index.d.ts",
+    "scripts": {
+        "test:watch": "./node_modules/.bin/mocha --recursive -r source-map-support/register -r ts-node/register --bail --watch ./test/**/*.spec.ts --watch-extensions ts",
+        "test": "./node_modules/.bin/mocha --recursive -r ts-node/register --bail ./test/**/*.spec.ts",
+        "cover": "./node_modules/nyc/bin/nyc.js npm test",
+        "build": "./node_modules/typescript/bin/tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/spiel-framework/spiel.git"
+    },
+    "author": "Francisco Jesus Navarro Cortes",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/spiel-framework/spiel/issues"
+    },
+    "homepage": "https://github.com/spiel-framework/spiel#readme",
+    "dependencies": {
+        "@types/navigo": "^4.0.2",
+        "@types/reflect-metadata": "0.0.5",
+        "injection-js": "^2.2.1",
+        "navigo": "^6.0.2",
+        "picodom": "^1.0.2",
+        "reflect-metadata": "^0.1.10"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.0.4",
+        "@types/mocha": "^2.2.44",
+        "@types/node": "^8.5.5",
+        "@types/sinon": "^2.3.7",
+        "chai": "^4.1.2",
+        "jsdom": "11.3.0",
+        "jsdom-global": "3.0.2",
+        "mocha": "^4.0.1",
+        "nyc": "^11.3.0",
+        "sinon": "^4.1.2",
+        "source-map-support": "^0.5.0",
+        "ts-loader": "^3.0.3",
+        "ts-node": "^3.3.0",
+        "typescript": "^2.5.3",
+        "webpack": "^3.3.0"
+    }
+}
