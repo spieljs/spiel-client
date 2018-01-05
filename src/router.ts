@@ -1,5 +1,3 @@
-import * as h from "picodom";
-import { patch, VNode } from "picodom";
 import { ConfigRouters, Routers, States } from "./helpers";
 import { render } from "./render";
 import Navigo = require("navigo");
