@@ -1,8 +1,8 @@
-import {States} from './helpers';
+import { State, View} from './helpers';
 import { patch } from 'picodom';
 
 let node: any;
 
-export function render(view: any, state: {[S in States]: any}) {
+export function render(view: View, state: State) {
     patch(node, (node = view(state)));
 }

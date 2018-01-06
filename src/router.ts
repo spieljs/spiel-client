@@ -1,4 +1,4 @@
-import { ConfigRouters, Routers, States } from "./helpers";
+import { ConfigRouters, Routers, State } from "./helpers";
 import { render } from "./render";
 import Navigo = require("navigo");
 
@@ -14,29 +14,55 @@ export class Router {
         this.router = new Navigo(null, useHash, hash);
         this.store = configRoutes.store;
         this.configRoutes = configRoutes;
-        
         if(this.configRoutes.routers) this.build(this.configRoutes.routers);
+        this.checkNotFound();
         this.router.resolve();
-        if(this.configRoutes.default) this.router.navigate(this.configRoutes.default);
+        const lastRoute = this.router.lastRouteResolved();
+        if(!lastRoute.url) {
+            this.checkDefault();
+        }
     }
 
-    private build(routers: Array<Routers>) {
-        routers.forEach(route => {
-            this.router.on(route.path, (params, query) => {
-                this.setPatch(route, params, query);
+    private build(routers: Array<Routers>, parentPath?: string) {
+        routers.forEach(router => {
+            if(parentPath) router.path = `${parentPath}${router.path}`;
+            this.router.on(router.path, (params, query) => {
+                this.setPatch(router, params, query);
             });
             
-            if(route.routers) this.build(route.routers);
+            if(router.routers) this.build(router.routers, router.path);
         });
     }
 
-    private setPatch(component: any, params: Object, query: string) {
-        const state: {[S in States]: any} = {};
-        Object.assign(state, component.propsState);
+    private setPatch(route: Routers, params: Object, query: string) {
+        const page = route.page;
+        const state: State = {};
+        Object.assign(state, page.state);
         state.params = params;
         state.query = query;
-        state.store = component.store || this.store;
-        render(component.view, state);
+        state.store = route.store || this.store;
+        render(page.view, state);
+    }
+
+    private checkNotFound() {
+        this.router.notFound(()=> {
+            if(this.configRoutes.notFound) {
+                const notFound = this.configRoutes.notFound;
+                render(notFound.view, notFound.state);
+            }
+            else {
+                this.checkDefault();
+
+            }
+        })
+    }
+
+    private checkDefault() {
+        if(this.configRoutes.default) {
+            this.go(this.configRoutes.default);
+        } else {
+            this.go('/');
+        }
     }
 
     go(path: string, absolute?: boolean) {

@@ -1,1 +1,1 @@
-export {ConfigRouters, Routers, States} from './interfaces';
+export {ConfigRouters, Routers, State, View, Page} from './interfaces';
