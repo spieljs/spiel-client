@@ -34,7 +34,8 @@ export interface Routers {
 export interface ConfigRouters {
     rootPath?: string;
     default?: string;
-    notFound?: Page;
+    notFound?: boolean;
+    notFoundPath?: string;
     useHash?: boolean;
     genericHooks?: GenericHooks;
     notFoundHooks?: Hooks;

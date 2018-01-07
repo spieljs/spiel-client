@@ -25,13 +25,12 @@ export class Router {
         }
     }
 
-    private build(routers: Array<Routers>, parentPath?: string) {
-        routers.forEach(router => {
+    private build(configRouters: Array<Routers>, parentPath?: string) {
+        configRouters.forEach((router, index) => {
             if(parentPath) router.path = `${parentPath}${router.path}`;
             this.router.on(router.path, (params, query) => {
                 this.setPatch(router, params, query);
             }, router.hooks);
-            
             if(router.routers) this.build(router.routers, router.path);
         });
     }
@@ -47,17 +46,14 @@ export class Router {
     }
 
     private checkNotFound() {
-        console.log(window.location)
         this.router.notFound(()=> {
-            if(this.configRouters.notFound && 
+            if(this.configRouters.notFound && this.configRouters.notFoundPath &&
                 ((window.location.hash && window.location.hash !== this.hash && this.useHash) ||
                 (window.location.pathname !== "/" && !this.useHash))) {
-                const notFound = this.configRouters.notFound;
-                render(notFound.view, notFound.state);
+                this.go(this.configRouters.notFoundPath);
             }
             else {
                 this.checkDefault();
-
             }
         }, this.configRouters.notFoundHooks);
     }
