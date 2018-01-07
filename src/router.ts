@@ -5,20 +5,22 @@ import Navigo = require("navigo");
 export class Router {
     router: Navigo;
     store: any;
-    configRoutes: ConfigRouters;
+    configRouters: ConfigRouters;
+    useHash: boolean;
+    hash: string;
 
-    setRouters(configRoutes: ConfigRouters) {
-        configRoutes = configRoutes;
-        const useHash = configRoutes.useHash;
-        const hash = configRoutes.hash;
-        this.router = new Navigo(null, useHash, hash);
-        this.store = configRoutes.store;
-        this.configRoutes = configRoutes;
-        if(this.configRoutes.routers) this.build(this.configRoutes.routers);
+    setRouters(configRouters: ConfigRouters) {
+        this.configRouters = configRouters;
+        this.useHash = (this.configRouters.useHash !== undefined) ?
+            this.configRouters.useHash : true;
+        this.hash = configRouters.hash || '#';
+        this.router = new Navigo(this.configRouters.rootPath || null, this.useHash, this.hash);
+        if(this.configRouters.genericHooks) this.router.hooks(this.configRouters.genericHooks);
+        this.store = this.configRouters.store;
+        if(this.configRouters.routers) this.build(this.configRouters.routers);
         this.checkNotFound();
         this.router.resolve();
-        const lastRoute = this.router.lastRouteResolved();
-        if(!lastRoute.url) {
+        if(!this.router.lastRouteResolved().url) {
             this.checkDefault();
         }
     }
@@ -28,7 +30,7 @@ export class Router {
             if(parentPath) router.path = `${parentPath}${router.path}`;
             this.router.on(router.path, (params, query) => {
                 this.setPatch(router, params, query);
-            });
+            }, router.hooks);
             
             if(router.routers) this.build(router.routers, router.path);
         });
@@ -45,21 +47,24 @@ export class Router {
     }
 
     private checkNotFound() {
+        console.log(window.location)
         this.router.notFound(()=> {
-            if(this.configRoutes.notFound) {
-                const notFound = this.configRoutes.notFound;
+            if(this.configRouters.notFound && 
+                ((window.location.hash && window.location.hash !== this.hash && this.useHash) ||
+                (window.location.pathname !== "/" && !this.useHash))) {
+                const notFound = this.configRouters.notFound;
                 render(notFound.view, notFound.state);
             }
             else {
                 this.checkDefault();
 
             }
-        })
+        }, this.configRouters.notFoundHooks);
     }
 
     private checkDefault() {
-        if(this.configRoutes.default) {
-            this.go(this.configRoutes.default);
+        if(this.configRouters.default) {
+            this.go(this.configRouters.default);
         } else {
             this.go('/');
         }
