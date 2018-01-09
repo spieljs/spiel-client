@@ -5,6 +5,8 @@ export type State = {[k in Keys]: any}
 export type Params = State;
 
 export type View = (state: State) => VNode<any>
+export type JSXElements = VNode<any>;
+export type Children = VNode<{}>[];
 
 export interface Page {
     state: State;

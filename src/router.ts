@@ -3,11 +3,11 @@ import { render } from "./render";
 import Navigo = require('navigo');
 
 export class Router {
-    router: Navigo;
-    store: any;
-    configRouters: ConfigRouters;
-    useHash: boolean;
-    hash: string;
+    private router: Navigo;
+    private store: any;
+    private configRouters: ConfigRouters;
+    private useHash: boolean;
+    private hash: string;
 
     setRouters(configRouters: ConfigRouters) {
         this.configRouters = configRouters;
