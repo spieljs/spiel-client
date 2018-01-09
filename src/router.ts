@@ -1,6 +1,6 @@
 import { ConfigRouters, Routers, State } from "./helpers";
 import { render } from "./render";
-import Navigo = require("navigo");
+import Navigo = require('navigo');
 
 export class Router {
     router: Navigo;
