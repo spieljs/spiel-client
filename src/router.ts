@@ -4,7 +4,7 @@ import Navigo = require('navigo');
 
 export class Router {
     private router: Navigo;
-    private store: any;
+    private defaultProps: any;
     private configRouters: ConfigRouters;
     private useHash: boolean;
     private hash: string;
@@ -16,7 +16,7 @@ export class Router {
         this.hash = configRouters.hash || '#';
         this.router = new Navigo(this.configRouters.rootPath || null, this.useHash, this.hash);
         if(this.configRouters.genericHooks) this.router.hooks(this.configRouters.genericHooks);
-        this.store = this.configRouters.store;
+        this.defaultProps = this.configRouters.defaultProps;
         if(this.configRouters.routers) this.build(this.configRouters.routers);
         this.checkNotFound();
         return this;
@@ -77,7 +77,7 @@ export class Router {
         Object.assign(state, page.state);
         state.params = params;
         state.query = query;
-        state.store = route.store || this.store;
+        state.defaultProps = route.defaultProps || this.defaultProps;
         render(page.view, state);
     }
 

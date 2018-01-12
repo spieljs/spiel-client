@@ -30,7 +30,7 @@ export interface Routers {
     page: Page;
     hooks?: Hooks;
     routers?: Array<{[Router in keyof Routers] :any}>;
-    store?: any;
+    defaultProps?: any;
 }
 
 export interface ConfigRouters {
@@ -42,6 +42,6 @@ export interface ConfigRouters {
     genericHooks?: GenericHooks;
     notFoundHooks?: Hooks;
     hash?: string;
-    store?: any;
+    defaultProps?: any;
     routers?: Array<{[Router in keyof Routers] :any}>;
 }
