@@ -30,6 +30,14 @@ export class Router {
         this.router.destroy();
     }
 
+    disableIfAPINotAvailable() {
+        this.router.disableIfAPINotAvailable();
+    }
+
+    generate(path: string, params?: Params) {
+        this.router.generate(path, params);
+    }
+
     on(path: 'string', action: (param?: Params, query?: string) => void, hooks: Hooks) {
         this.router.on(path, action, hooks);
     }
@@ -49,12 +57,12 @@ export class Router {
         }
     }
 
-    link(path: string) {
-        this.router.link(path);
+    resume() {
+        this.router.resume();
     }
 
-    disableIfAPINotAvailable() {
-        this.router.disableIfAPINotAvailable();
+    link(path: string) {
+        this.router.link(path);
     }
 
     updatePageLinks() {
