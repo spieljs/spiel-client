@@ -19,10 +19,7 @@ export class Router {
         this.store = this.configRouters.store;
         if(this.configRouters.routers) this.build(this.configRouters.routers);
         this.checkNotFound();
-        this.router.resolve();
-        if(!this.router.lastRouteResolved().url) {
-            this.checkDefault();
-        }
+        return this;
     }
 
     go(path: string, absolute?: boolean) {
@@ -47,6 +44,9 @@ export class Router {
 
     resolve(currentUrl?: string) {
         this.router.resolve(currentUrl);
+        if(!this.router.lastRouteResolved().url) {
+            this.checkDefault();
+        }
     }
 
     link(path: string) {

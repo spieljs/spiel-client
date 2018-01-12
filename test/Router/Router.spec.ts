@@ -6,7 +6,7 @@ import {configDefault, configRoutersHash} from './configs';
 describe('Router', ()=> {
     describe('with default', () => {
         before(() => {
-            router.setRouters(configDefault);
+            router.setRouters(configDefault).resolve();
         });
 
         it('has to go to "#/" without default path', (done)=>{
@@ -60,7 +60,7 @@ describe('Router', ()=> {
     
     describe("with settings", () => {
         before(() => {
-            router.setRouters(configRoutersHash);
+            router.setRouters(configRoutersHash).resolve();
         });
     
         it('has to go to home page', (done) => {
