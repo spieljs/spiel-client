@@ -30,11 +30,11 @@ export class Router {
         this.router.destroy();
     }
 
-    onChild(path: 'string', action: (param?: Params, query?: string) => void, hooks: Hooks) {
+    on(path: 'string', action: (param?: Params, query?: string) => void, hooks: Hooks) {
         this.router.on(path, action, hooks);
     }
 
-    onRoot(action: (param?: Params, query?: string) => void, hooks?: Hooks){
+    onDefault(action: (param?: Params, query?: string) => void, hooks?: Hooks){
         this.router.on(action, hooks);
     }
 
