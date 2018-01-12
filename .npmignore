@@ -3,3 +3,4 @@ lib/**/*.map
 .nyc_output
 coverage
 lib/test
+karma.conf.js

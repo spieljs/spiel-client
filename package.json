@@ -1,13 +1,11 @@
 {
     "name": "spiel-client",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Spiel Framework Frontend",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
     "scripts": {
-        "test:watch": "./node_modules/.bin/mocha --recursive -r source-map-support/register -r ts-node/register --bail --watch ./test/**/*.spec.ts --watch-extensions ts",
-        "test": "./node_modules/.bin/mocha --recursive -r ts-node/register --bail ./test/**/*.spec.ts",
-        "cover": "./node_modules/nyc/bin/nyc.js npm test",
+        "test": "./node_modules/.bin/karma start",
         "build": "./node_modules/typescript/bin/tsc"
     },
     "repository": {
@@ -21,7 +19,7 @@
     },
     "homepage": "https://github.com/spiel-framework/spiel#readme",
     "dependencies": {
-        "@types/navigo": "^4.0.4",
+        "@types/navigo": "^4.0.5",
         "@types/reflect-metadata": "0.0.5",
         "injection-js": "^2.2.1",
         "navigo": "^6.0.2",
@@ -34,10 +32,13 @@
         "@types/node": "^8.5.8",
         "@types/sinon": "^2.3.7",
         "chai": "^4.1.2",
-        "jsdom": "11.3.0",
-        "jsdom-global": "3.0.2",
-        "mocha": "^4.0.1",
-        "nyc": "^11.3.0",
+        "karma": "^2.0.0",
+        "karma-coverage": "^1.1.1",
+        "karma-mocha": "^1.3.0",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-remap-coverage": "^0.1.4",
+        "karma-typescript": "^3.0.9",
+        "mocha": "^4.1.0",
         "sinon": "^4.1.4",
         "source-map-support": "^0.5.0",
         "ts-loader": "^3.0.3",

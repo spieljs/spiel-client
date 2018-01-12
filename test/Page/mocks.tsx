@@ -7,8 +7,8 @@ export class PageTest implements Page {
 
     view(state: State): VNode<any> {
         const changeTitle = () => {
-            state.title = 'Hello World'
-            render(pageTest.view, state)
+            state.title = 'Hello World';
+            render(pageTest.view, state);
         }
 
         return(

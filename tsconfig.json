@@ -8,7 +8,7 @@
 		"declaration": true,
 		"jsx": "react",
 		"jsxFactory": "h",
-		"outDir": "../spiel-example/spiel/lib",
+		"outDir": "/lib",
 		"rootDir": ".",
 		"sourceMap": true
 	},

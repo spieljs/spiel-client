@@ -16,7 +16,7 @@ export class TestPage1 {
                 >go to child</button>
                 <button id='grandchild'
                     onclick = {() => {
-                        router.go('/home/child/2/child2/primo');
+                        router.go('/home/child/2/child2/test');
                     }}
                 >go to child 2</button>
                 <button id='brother'

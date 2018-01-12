@@ -1,4 +1,4 @@
-import { ConfigRouters, Routers, State } from "./helpers";
+import { ConfigRouters, Routers, State, Params, Hooks } from "./helpers";
 import { render } from "./render";
 import Navigo = require('navigo');
 
@@ -23,6 +23,42 @@ export class Router {
         if(!this.router.lastRouteResolved().url) {
             this.checkDefault();
         }
+    }
+
+    go(path: string, absolute?: boolean) {
+        this.router.navigate(path, absolute);
+    }
+
+    destroy() {
+        this.router.destroy();
+    }
+
+    onChild(path: 'string', action: (param?: Params, query?: string) => void, hooks: Hooks) {
+        this.router.on(path, action, hooks);
+    }
+
+    onRoot(action: (param?: Params, query?: string) => void, hooks?: Hooks){
+        this.router.on(action, hooks);
+    }
+
+    pause() {
+        this.router.pause();
+    }
+
+    resolve(currentUrl?: string) {
+        this.router.resolve(currentUrl);
+    }
+
+    link(path: string) {
+        this.router.link(path);
+    }
+
+    disableIfAPINotAvailable() {
+        this.router.disableIfAPINotAvailable();
+    }
+
+    updatePageLinks() {
+        this.router.updatePageLinks();
     }
 
     private build(configRouters: Array<Routers>, parentPath?: string) {
@@ -64,10 +100,6 @@ export class Router {
         } else {
             this.go('/');
         }
-    }
-
-    go(path: string, absolute?: boolean) {
-        this.router.navigate(path, absolute);
     }
 }
 
