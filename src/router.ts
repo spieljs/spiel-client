@@ -9,11 +9,11 @@ export class Router {
     private useHash: boolean;
     private hash: string;
 
-    setRouters(configRouters: ConfigRouters) {
-        this.configRouters = configRouters;
+    setRouters(configRouters?: ConfigRouters) {
+        this.configRouters = configRouters || {};
         this.useHash = (this.configRouters.useHash !== undefined) ?
             this.configRouters.useHash : true;
-        this.hash = configRouters.hash || '#';
+        this.hash = this.configRouters.hash || '#';
         this.router = new Navigo(this.configRouters.rootPath || null, this.useHash, this.hash);
         if(this.configRouters.genericHooks) this.router.hooks(this.configRouters.genericHooks);
         this.defaultProps = this.configRouters.defaultProps;
@@ -35,10 +35,10 @@ export class Router {
     }
 
     generate(path: string, params?: Params) {
-        this.router.generate(path, params);
+        return this.router.generate(path, params);
     }
 
-    on(path: 'string', action: (param?: Params, query?: string) => void, hooks: Hooks) {
+    on(path: string, action: (param?: Params, query?: string) => void, hooks?: Hooks) {
         this.router.on(path, action, hooks);
     }
 
@@ -61,8 +61,12 @@ export class Router {
         this.router.resume();
     }
 
+    lastRouteResolved(): {url: string, query: string} {
+        return this.router.lastRouteResolved();
+    }
+
     link(path: string) {
-        this.router.link(path);
+        return this.router.link(path);
     }
 
     updatePageLinks() {

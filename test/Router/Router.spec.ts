@@ -1,7 +1,9 @@
-import { router } from "../../src";
+import { router, render, State } from "../../src";
 import { expect, assert } from "chai";
 
-import {configDefault, configRoutersHash} from './configs';
+import {configDefault, configSettings} from './configs';
+import { testPage2 } from "./mocks/TestPage2";
+import { testPage1 } from "./mocks/TestPage1";
 
 describe('Router', ()=> {
     describe('with default', () => {
@@ -60,7 +62,7 @@ describe('Router', ()=> {
     
     describe("with settings", () => {
         before(() => {
-            router.setRouters(configRoutersHash).resolve();
+            router.setRouters(configSettings).resolve();
         });
     
         it('has to go to home page', (done) => {
@@ -147,5 +149,78 @@ describe('Router', ()=> {
             window.location.hash = '';
         });
     });
-    
+
+    describe('without hash', () => {
+        before(() => {
+            configSettings.useHash = false;
+            router.setRouters(configSettings).resolve();
+            router.go('/');
+        });
+
+        it('has not to have any hash', (done) => {
+            setTimeout(() => {
+                expect(window.location.hash).has.to.be.empty
+                done();
+            });
+        });
+
+        it('has to go to default page', () => {
+            const title = document.getElementsByTagName('h1')[0];
+            expect(window.location.pathname).has.to.be.equal('/home');
+            expect(title.textContent).has.to.be.equal('Hello world');
+        });
+
+        after(()=> {
+            router.destroy();
+        });
+    });
+
+    describe('manual', () => {
+        before(() => {
+            router.setRouters();
+        });
+
+        it('has to add a route', (done) => {
+            router.on('/child/:number', (params) => {
+                const state: State = {};
+                Object.assign(state, testPage2.state);
+                state.params = params;
+                render(testPage2.view, state);
+            });
+            router.resolve();
+            router.go('/child/6');
+            setTimeout(() => {
+                const title = document.getElementsByTagName('h1')[0];
+                if(title) expect(title.textContent).has.to.be.equal('Seriously 6');
+                done();
+            });
+        });
+
+        it('has to create a default route', (done)=> {
+            router.pause();
+            router.onDefault(() => {
+                render(testPage1.view, testPage1.state);
+            });
+            router.resume();
+            router.resolve();
+            router.go('http://localhost:9876/', true);
+            setTimeout(() => {
+                const element = document.getElementsByTagName('h1')[0];
+                expect(element.textContent).has.to.be.equal('Hello world');
+                done();
+            });
+        });
+
+        it('has to get the full link', () => {
+            expect(router.link('/')).has.to.be.equal('http://localhost:9876/home/');
+        });
+
+        it('has to get the last route resolved', (done) => {
+            router.go('/child/5');
+            setTimeout(()=> {
+                expect(router.lastRouteResolved().url).has.to.be.equal('/child/5');
+                done();
+            })
+        })
+    })
 });

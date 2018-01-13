@@ -21,7 +21,7 @@ export const configDefault: ConfigRouters = {
     }]
 };
 
-export const configRoutersHash: ConfigRouters = {
+export const configSettings: ConfigRouters = {
     rootPath: 'http://localhost:9876/',
     default: '/home',
     useHash: true,
