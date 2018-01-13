@@ -177,7 +177,7 @@ describe('Router', ()=> {
 
     describe('manual', () => {
         before(() => {
-            router.setRouters();
+            router.setRouters({rootPath: 'http://localhost:9876/'});
         });
 
         it('has to add a route', (done) => {
@@ -212,7 +212,7 @@ describe('Router', ()=> {
         });
 
         it('has to get the full link', () => {
-            expect(router.link('/')).has.to.be.equal('http://localhost:9876/home/');
+            expect(router.link('/')).has.to.be.equal('http://localhost:9876/#/');
         });
 
         it('has to get the last route resolved', (done) => {
@@ -221,6 +221,6 @@ describe('Router', ()=> {
                 expect(router.lastRouteResolved().url).has.to.be.equal('/child/5');
                 done();
             })
-        })
+        });
     })
 });
