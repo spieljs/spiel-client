@@ -1,4 +1,5 @@
-import { ConfigRouters, Routers, State, Params, Hooks, Handler, RoutersHandler } from "./helpers";
+import { ConfigRouters, Routers, State, Params, Hooks,
+    Handler, RoutersHandler } from "./helpers";
 import { render } from "./render";
 import Navigo = require('navigo');
 
@@ -54,8 +55,8 @@ export class Router {
         this.router.on(action, hooks);
     }
 
-    pause() {
-        this.router.pause();
+    pause(change?: boolean) {
+        this.router.pause(change);
     }
 
     resolve(currentUrl?: string) {
@@ -81,7 +82,7 @@ export class Router {
         return this.router.updatePageLinks();
     }
 
-    historyAPIUpdateMethod(method: string) {
+    historyAPIUpdateMethod(method?: string) {
         this.router.historyAPIUpdateMethod(method);
     }
 

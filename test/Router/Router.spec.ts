@@ -238,6 +238,6 @@ describe('Router', ()=> {
             });
             const path = router.generate('child', {number: 5});
             expect(path).has.to.be.equal('#/child/5?answer=42');
-        })
+        });
     })
 });
