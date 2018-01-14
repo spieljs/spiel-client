@@ -4,3 +4,5 @@ lib/**/*.map
 coverage
 lib/test
 karma.conf.js
+node_modules
+test
