@@ -1,4 +1,4 @@
-import { ConfigRouters, Routers, State, Params, Hooks } from "./helpers";
+import { ConfigRouters, Routers, State, Params, Hooks, Handler, RoutersHandler } from "./helpers";
 import { render } from "./render";
 import Navigo = require('navigo');
 
@@ -38,8 +38,12 @@ export class Router {
         return this.router.generate(path, params);
     }
 
-    on(path: string, action: (param?: Params, query?: string) => void, hooks?: Hooks) {
-        this.router.on(path, action, hooks);
+    onMultiple(routers: RoutersHandler) {
+        this.router.on(routers);
+    }
+
+    on(path: string, handle: Handler, hooks?: Hooks) {
+        this.router.on(path, handle, hooks);
     }
 
     onDefault(action: (param?: Params, query?: string) => void, hooks?: Hooks){
@@ -76,9 +80,18 @@ export class Router {
     private build(configRouters: Array<Routers>, parentPath?: string) {
         configRouters.forEach((router, index) => {
             if(parentPath) router.path = `${parentPath}${router.path}`;
-            this.router.on(router.path, (params, query) => {
-                this.setPatch(router, params, query);
-            }, router.hooks);
+            if(router.alias) {
+                this.router.on(router.path, {
+                    as: router.alias, uses: (params, query) => {
+                        this.setPatch(router, params, query);
+                    }
+                }, router.hooks);
+            } else {
+
+                this.router.on(router.path, (params, query) => {
+                    this.setPatch(router, params, query);
+                }, router.hooks);
+            }
             if(router.routers) this.build(router.routers, router.path);
         });
     }

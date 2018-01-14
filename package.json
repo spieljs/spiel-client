@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "Spiel Framework Frontend",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",

@@ -35,9 +35,11 @@ export const configSettings: ConfigRouters = {
         routers: [{
             path: '/child/:number',
             page: testPage2,
+            alias: 'child',
             hooks: hooks,
             routers: [{
                 path: '/child2/:word',
+                alias: 'grandchild',
                 page: testPage3
             }]
         },{

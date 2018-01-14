@@ -7,6 +7,8 @@ export type Params = State;
 export type View = (state: State) => VNode<any>
 export type JSXElements = VNode<any>;
 export type Children = VNode<{}>[];
+export type Handler = ((params: Params, query: string) => void) | { as: string; uses(params: Params, query: string): void };
+export type RoutersHandler = {[key: string]: Handler};
 
 export interface Page {
     state: State;
@@ -28,6 +30,7 @@ export interface Hooks {
 export interface Routers {
     path: string;
     page: Page;
+    alias?: string;
     hooks?: Hooks;
     routers?: Array<{[Router in keyof Routers] :any}>;
     defaultProps?: any;

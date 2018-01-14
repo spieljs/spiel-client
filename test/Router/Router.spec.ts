@@ -1,4 +1,4 @@
-import { router, render, State } from "../../src";
+import { router, render, State, Params } from "../../src";
 import { expect, assert } from "chai";
 
 import {configDefault, configSettings} from './configs';
@@ -100,7 +100,7 @@ describe('Router', ()=> {
             if(button) button.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
-                expect(title.textContent).has.to.be.equal('Really test 4');
+                expect(title.textContent).has.to.be.equal('Really test 4 state=good');
                 router.go('/home');
                 done();
             })
@@ -222,5 +222,15 @@ describe('Router', ()=> {
                 done();
             })
         });
+
+        it('has to generate an url', () => {
+            router.onMultiple({
+                '/child/:number?answer=42': { 
+                    as: 'child', uses: (params, query) => {} 
+                }
+            });
+            const path = router.generate('child', {number: 5});
+            expect(path).has.to.be.equal('#/child/5?answer=42');
+        })
     })
 });
