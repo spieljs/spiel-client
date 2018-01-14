@@ -111,6 +111,7 @@ describe('Router', ()=> {
             if(button) button.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
+                router.updatePageLinks();
                 expect(title.textContent).has.to.be.equal('Hello brother');
                 done();
             })
@@ -123,9 +124,15 @@ describe('Router', ()=> {
             expect(title.textContent).has.to.be.equal('Yes brother');
         });
 
+        it('has to get the home link when getLinkPath is called', () => {
+            const link = document.getElementsByTagName('a')[0];
+            const url = router.getLinkPath(link);
+            expect(url).has.to.be.equal('/home');
+        })
+
         it('has to go to root page from testpage4', (done) => {
-            const button = document.getElementsByTagName('button')[1];
-            if(button) button.click();
+            const link = document.getElementsByTagName('a')[0];
+            if(link) link.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
                 expect(window.location.hash).has.to.be.equal('#!/home');

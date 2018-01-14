@@ -38,6 +38,10 @@ export class Router {
         return this.router.generate(path, params);
     }
 
+    getLinkPath(link: HTMLAnchorElement){
+        return this.router.getLinkPath(link);
+    }
+
     onMultiple(routers: RoutersHandler) {
         this.router.on(routers);
     }
@@ -74,7 +78,11 @@ export class Router {
     }
 
     updatePageLinks() {
-        this.router.updatePageLinks();
+        return this.router.updatePageLinks();
+    }
+
+    historyAPIUpdateMethod(method: string) {
+        this.router.historyAPIUpdateMethod(method);
     }
 
     private build(configRouters: Array<Routers>, parentPath?: string) {

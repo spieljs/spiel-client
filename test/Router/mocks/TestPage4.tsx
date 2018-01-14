@@ -15,11 +15,7 @@ export class TestPage4 {
                         render(testPage4.view, state)
                     }}
                 >Change Title</button>
-                <button
-                    onclick = {() => {
-                        router.go('/home');
-                    }}
-                >go to root</button>
+                <a href='/home' data-navigo>go to root</a>
             </div>
         )
     }
