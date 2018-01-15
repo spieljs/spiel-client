@@ -9,6 +9,7 @@ export class TestPage4 {
         return (
             <div>
                 <h1>{state.title}</h1>
+                <h2>{state.defaultProps}</h2>
                 <button
                     onclick ={() => {
                         state.title = 'Yes brother';

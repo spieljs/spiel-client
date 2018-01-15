@@ -4,6 +4,7 @@ import { expect, assert } from "chai";
 import {configDefault, configSettings} from './configs';
 import { testPage2 } from "./mocks/TestPage2";
 import { testPage1 } from "./mocks/TestPage1";
+import { testPage4 } from "./mocks/TestPage4";
 
 describe('Router', ()=> {
     describe('with default', () => {
@@ -68,8 +69,10 @@ describe('Router', ()=> {
         it('has to go to home page', (done) => {
             setTimeout(() => {
                 const title = document.getElementsByTagName('h1')[0];
+                const defaultProps = document.getElementsByTagName('h2')[0];
                 expect(window.location.hash).has.to.be.equal('#!/home');
                 expect(title.textContent).has.to.be.equal('Hello world');
+                expect(defaultProps.textContent).has.to.be.equal('default');
                 done();
             });
         });
@@ -79,7 +82,9 @@ describe('Router', ()=> {
             if (button) button.click();
             setTimeout(() => {
                 const title = document.getElementsByTagName('h1')[0];
+                const defaultProps = document.getElementsByTagName('h2')[0];
                 if(title) expect(title.textContent).has.to.be.equal('Seriously 9');
+                expect(defaultProps.textContent).has.to.be.equal('default')
                 done();
             });
         });
@@ -89,8 +94,10 @@ describe('Router', ()=> {
             if(button) button.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
+                const defaultProps = document.getElementsByTagName('h2')[0];
                 expect(window.location.hash).has.to.be.equal('#!/home');
                 expect(title.textContent).has.to.be.equal('Hello world');
+                expect(defaultProps.textContent).has.to.be.equal('default');
                 done();
             })
         });
@@ -100,7 +107,9 @@ describe('Router', ()=> {
             if(button) button.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
+                const defaultProps = document.getElementsByTagName('h2')[0];
                 expect(title.textContent).has.to.be.equal('Really test 4 state=good');
+                expect(defaultProps.textContent).has.to.be.equal('default');
                 router.go('/home');
                 done();
             })
@@ -111,8 +120,10 @@ describe('Router', ()=> {
             if(button) button.click();
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
+                const defaultProps = document.getElementsByTagName('h2')[0];
                 router.updatePageLinks();
                 expect(title.textContent).has.to.be.equal('Hello brother');
+                expect(defaultProps.textContent).has.to.be.equal('my own prop');
                 done();
             })
         });
@@ -230,14 +241,21 @@ describe('Router', ()=> {
             })
         });
 
-        it('has to generate an url', () => {
+        it('has to generate an url', (done) => {
             router.onMultiple({
-                '/child/:number?answer=42': { 
-                    as: 'child', uses: (params, query) => {} 
+                '/child/:number': { 
+                    as: 'child', uses: (params, query) => {
+                        Object.assign(testPage2.state, params);
+                        render(testPage2.view, testPage2.state);
+                    } 
                 }
             });
-            const path = router.generate('child', {number: 5});
-            expect(path).has.to.be.equal('#/child/5?answer=42');
+
+            setTimeout(() => {
+                const path = router.generate('child', {number: 5});
+                expect(path).has.to.be.equal('#/child/5');
+                done();
+            })
         });
-    })
+    });
 });

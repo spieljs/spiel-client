@@ -9,6 +9,7 @@ export class TestPage1 {
         return (
             <div>
                 <h1>{state.title}</h1>
+                <h2>{state.defaultProps}</h2>
                 <button id ='child'
                     onclick = {() => {
                         router.go('/home/child/5');

@@ -43,6 +43,10 @@ export class Router {
         return this.router.getLinkPath(link);
     }
 
+    off(path: string, handler: Handler) {
+        this.router.off(path, handler);
+    }
+
     onMultiple(routers: RoutersHandler) {
         this.router.on(routers);
     }

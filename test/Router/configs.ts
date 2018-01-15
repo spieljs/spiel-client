@@ -26,6 +26,7 @@ export const configSettings: ConfigRouters = {
     default: '/home',
     useHash: true,
     genericHooks: genericHooks,
+    defaultProps: 'default',
     notFound: true,
     hash: '#!',
     notFoundPath: '/not-found',
@@ -44,6 +45,7 @@ export const configSettings: ConfigRouters = {
             }]
         },{
             path: '/brother',
+            defaultProps: 'my own prop',
             page: testPage4
         }]
     },
