@@ -105,7 +105,7 @@ export interface ConfigRouters {
     hash?: string;
     /** It assigns to state for every page default props */
     defaultProps?: any;
-    /** It set all the path page
+    /** It set every path page
     * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
     */
     routers?: Array<{[Router in keyof Routers] :any}>;
