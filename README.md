@@ -253,4 +253,4 @@ describe('Component', () => {
 
 ## License
 
-Spiel Client use MIT license. See [License](LICENSE.md)
+Spiel Client use MIT license. See [license](LICENSE.md)

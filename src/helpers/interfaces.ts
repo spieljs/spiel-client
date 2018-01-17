@@ -10,6 +10,9 @@ export type Children = VNode<{}>[];
 export type Handler = ((params: Params, query: string) => void) | { as: string; uses(params: Params, query: string): void };
 export type RoutersHandler = {[key: string]: Handler};
 
+/**
+* @see <a href='https://github.com/spiel-framework/spiel-client#create-your-page-components'>Page example</a>
+*/
 export interface Page {
     /** State object with all the properties of the page component */
     state: State;
@@ -17,6 +20,9 @@ export interface Page {
     view: View;
 }
 
+/**
+* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Generic Hooks example</a>
+*/
 export interface GenericHooks {
     /** Before to resolve the route
     * @param done To execute when finish async operation with done() 
@@ -29,6 +35,9 @@ export interface GenericHooks {
     after?(params?: Params): void;
 }
 
+/**
+* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Hooks example</a>
+*/
 export interface Hooks {
     /** Before to resolve the route
     * @param done To execute when finish async operation with done() 
@@ -69,6 +78,9 @@ export interface Routers {
     defaultProps?: any;
 }
 
+/**
+* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Config routes example</a> 
+*/
 export interface ConfigRouters {
     /** The main URL of the application. without parameters 
     *  then the router figures out the root URL based on your routes
