@@ -155,7 +155,7 @@ export const page1 = new Page1();
 **Note:** you need to export the singleton of the class and always import `h` and `Component` to render the views
 
 To know more about the views see more in [picodom](https://github.com/picodom/picodom).
-All the picodom functionalities like `patch`, `h` etc.. are available in spiel-client
+All the picodom functionalities like `patch`, `h` etc... are available in spiel-client
 
 ### Config your project
 
