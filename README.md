@@ -5,6 +5,9 @@ Spiel client is a flexible and light frontend framework to make easier create a 
 ## Api documentation
 * [Spiel client API](https://spiel-framework.github.io/spiel-client/)
 
+## Examples
+* [Simple Spiel Client Example](https://github.com/spiel-examples/simple-spiel-client-example)
+
 ## How use it
 
 ### First config you routes
