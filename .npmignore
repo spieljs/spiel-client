@@ -7,3 +7,4 @@ karma.conf.js
 node_modules
 test
 docs
+READMEAPI.md

@@ -7,7 +7,8 @@ gulp.task("typedoc", function() {
             module: "commonjs",
             target: "es6",
             out: "docs/",
-            name: "Spiel Client"
+            name: "Spiel Client",
+            readme: "READMEAPI.md"
         }))
     ;
 });
