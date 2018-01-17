@@ -38,7 +38,7 @@ export class Router {
     /**
      * It goes to the path indicated
      * @param path Path of the route, example: /example
-     * @param absolute True allow to pass absolute path, example: router.go(http://localhost/example, true)
+     * @param absolute True allow to pass absolute path, example: router.go("http://localhost/example", true)
      */
     go(path: string, absolute?: boolean) {
         this.router.navigate(path, absolute);
