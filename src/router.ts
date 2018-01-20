@@ -10,7 +10,7 @@ import Navigo = require('navigo');
  * @preferred
  */
 export class Router {
-    private router: Navigo;
+    router: Navigo;
     private defaultProps: any;
     private configRouters: ConfigRouters;
     private useHash: boolean;
@@ -231,4 +231,4 @@ export class Router {
     }
 }
 
-export const router = new Router();
+export const srouter = new Router();

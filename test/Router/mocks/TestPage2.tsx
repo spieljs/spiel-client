@@ -1,4 +1,4 @@
-import {h, Component, render, router, State, JSXElements} from '../../../src';
+import {h, Component, render, srouter, State, JSXElements} from '../../../src';
 
 export class TestPage2 {
     state = {
@@ -12,7 +12,7 @@ export class TestPage2 {
                 <h2>{state.defaultProps}</h2>
                 <button
                     onclick = {() => {
-                        router.go('/home');
+                        srouter.go('/home');
                     }}
                 >go to root</button>
             </div>

@@ -1,4 +1,4 @@
-import {h, Component, render, router, State, JSXElements } from '../../../src';
+import {h, Component, render, srouter, State, JSXElements } from '../../../src';
 
 export class TestPage1 {
     state = {
@@ -12,22 +12,22 @@ export class TestPage1 {
                 <h2>{state.defaultProps}</h2>
                 <button id ='child'
                     onclick = {() => {
-                        router.go('/home/child/5');
+                        srouter.go('/home/child/5');
                     }}
                 >go to child</button>
                 <button id='grandchild'
                     onclick = {() => {
-                        router.go('/home/child/2/child2/test?state=good');
+                        srouter.go('/home/child/2/child2/test?state=good');
                     }}
                 >go to child 2</button>
                 <button id='brother'
                     onclick = {() => {
-                        router.go('/home/brother');
+                        srouter.go('/home/brother');
                     }}
                 >go to child brother</button>
                 <button id='page-component'
                     onclick = {() => {
-                        router.go('/child');
+                        srouter.go('/child');
                     }}
                 >go to child with component</button>
             </div>

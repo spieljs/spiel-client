@@ -1,4 +1,4 @@
-import { router, render, State, Params } from "../../src";
+import { srouter, render, State, Params } from "../../src";
 import { expect, assert } from "chai";
 
 import {configDefault, configSettings} from './configs';
@@ -9,7 +9,7 @@ import { testPage4 } from "./mocks/TestPage4";
 describe('Router', ()=> {
     describe('with default', () => {
         before(() => {
-            router.setRouters(configDefault).resolve();
+            srouter.setRouters(configDefault).resolve();
         });
 
         it('has to go to "#/" without default path', (done)=>{
@@ -56,14 +56,14 @@ describe('Router', ()=> {
         });
 
         after(()=> {
-            router.destroy();
+            srouter.destroy();
             window.location.hash = '';
         });
     });
     
     describe("with settings", () => {
         before(() => {
-            router.setRouters(configSettings).resolve();
+            srouter.setRouters(configSettings).resolve();
         });
     
         it('has to go to home page', (done) => {
@@ -110,7 +110,7 @@ describe('Router', ()=> {
                 const defaultProps = document.getElementsByTagName('h2')[0];
                 expect(title.textContent).has.to.be.equal('Really test 4 state=good');
                 expect(defaultProps.textContent).has.to.be.equal('default');
-                router.go('/home');
+                srouter.go('/home');
                 done();
             })
         });
@@ -121,7 +121,7 @@ describe('Router', ()=> {
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
                 const defaultProps = document.getElementsByTagName('h2')[0];
-                router.updatePageLinks();
+                srouter.updatePageLinks();
                 expect(title.textContent).has.to.be.equal('Hello brother');
                 expect(defaultProps.textContent).has.to.be.equal('my own prop');
                 done();
@@ -137,7 +137,7 @@ describe('Router', ()=> {
 
         it('has to get the home link when getLinkPath is called', () => {
             const link = document.getElementsByTagName('a')[0];
-            const url = router.getLinkPath(link);
+            const url = srouter.getLinkPath(link);
             expect(url).has.to.be.equal('/home');
         })
 
@@ -153,7 +153,7 @@ describe('Router', ()=> {
         });
 
         it('has to go to not found page', (done) => {
-            router.go('/home/chil');
+            srouter.go('/home/chil');
             setTimeout(()=> {
                 const title = document.getElementsByTagName('h1')[0];
                 expect(window.location.hash).has.to.be.equal('#!/not-found');
@@ -163,7 +163,7 @@ describe('Router', ()=> {
         });
 
         after(()=> {
-            router.destroy();
+            srouter.destroy();
             window.location.hash = '';
         });
     });
@@ -171,8 +171,8 @@ describe('Router', ()=> {
     describe('without hash', () => {
         before(() => {
             configSettings.useHash = false;
-            router.setRouters(configSettings).resolve();
-            router.go('/');
+            srouter.setRouters(configSettings).resolve();
+            srouter.go('/');
         });
 
         it('has not to have any hash', (done) => {
@@ -189,24 +189,24 @@ describe('Router', ()=> {
         });
 
         after(()=> {
-            router.destroy();
+            srouter.destroy();
         });
     });
 
     describe('manual', () => {
         before(() => {
-            router.setRouters({rootPath: 'http://localhost:9876/'});
+            srouter.setRouters({rootPath: 'http://localhost:9876/'});
         });
 
         it('has to add a route', (done) => {
-            router.on('/child/:number', (params) => {
+            srouter.on('/child/:number', (params) => {
                 const state: State = {};
                 Object.assign(state, testPage2.state);
                 state.params = params;
                 render(testPage2.view, state);
             });
-            router.resolve();
-            router.go('/child/6');
+            srouter.resolve();
+            srouter.go('/child/6');
             setTimeout(() => {
                 const title = document.getElementsByTagName('h1')[0];
                 if(title) expect(title.textContent).has.to.be.equal('Seriously 6');
@@ -215,13 +215,13 @@ describe('Router', ()=> {
         });
 
         it('has to create a default route', (done)=> {
-            router.pause();
-            router.onDefault(() => {
+            srouter.pause();
+            srouter.onDefault(() => {
                 render(testPage1.view, testPage1.state);
             });
-            router.resume();
-            router.resolve();
-            router.go('http://localhost:9876/', true);
+            srouter.resume();
+            srouter.resolve();
+            srouter.go('http://localhost:9876/', true);
             setTimeout(() => {
                 const element = document.getElementsByTagName('h1')[0];
                 expect(element.textContent).has.to.be.equal('Hello world');
@@ -230,19 +230,19 @@ describe('Router', ()=> {
         });
 
         it('has to get the full link', () => {
-            expect(router.link('/')).has.to.be.equal('http://localhost:9876/#/');
+            expect(srouter.link('/')).has.to.be.equal('http://localhost:9876/#/');
         });
 
         it('has to get the last route resolved', (done) => {
-            router.go('/child/5');
+            srouter.go('/child/5');
             setTimeout(()=> {
-                expect(router.lastRouteResolved().url).has.to.be.equal('/child/5');
+                expect(srouter.lastRouteResolved().url).has.to.be.equal('/child/5');
                 done();
             })
         });
 
         it('has to generate an url', (done) => {
-            router.onMultiple({
+            srouter.onMultiple({
                 '/child/:number': { 
                     as: 'child', uses: (params, query) => {
                         Object.assign(testPage2.state, params);
@@ -252,7 +252,7 @@ describe('Router', ()=> {
             });
 
             setTimeout(() => {
-                const path = router.generate('child', {number: 5});
+                const path = srouter.generate('child', {number: 5});
                 expect(path).has.to.be.equal('#/child/5');
                 done();
             })
