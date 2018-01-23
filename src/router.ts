@@ -10,6 +10,10 @@ import Navigo = require('navigo');
  * @preferred
  */
 export class Router {
+    /** This attribute include the navigo singleton which is possible
+    * to access all its methods
+    * @see <a href='https://github.com/krasimir/navigo#api' target="_blank">Navigo API</a>
+    */
     router: Navigo;
     private defaultProps: any;
     private configRouters: ConfigRouters;

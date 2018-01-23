@@ -13,7 +13,7 @@ Spiel client is a flexible and light frontend framework to make easier create a 
 ### First config you routes
 
 ```typescript
-import {ConfigRouters, Router} from 'spiel-client';
+import {ConfigRouters, srouter} from 'spiel-client';
 
 import {genericHooks, hooks} from './hooks';
 
@@ -53,13 +53,13 @@ const configSettings: ConfigRouters = {
     }]
 };
 
-router.setRouters(configDefault).resolve();
+srouter.setRouters(configDefault).resolve();
 ```
 
 You can also declare the routes manually and after resolve it:
 
 ```typescript
-router.setRouters()
+srouter.setRouters()
     .onMultiple({
         '/user/:id': { 
             as: 'user', uses: (params, query) => {
@@ -83,7 +83,7 @@ const configDefault: ConfigRouters = {
     }]
 };
 
-router.setRouters(configDefault).resolve();
+srouter.setRouters(configDefault).resolve();
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
@@ -99,6 +99,13 @@ export const genericHooks = {
         if(params && params.number) params.number = +params.number + 2;
     }
 }
+```
+
+Use the navigo API directly:
+
+```typescript
+const router = srouter.router;
+router.updatePageLinks();
 ```
 
 And your hooks for expecific route:
