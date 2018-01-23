@@ -261,6 +261,10 @@ describe('Component', () => {
 })
 ```
 
+## Run Spiel Client tests
+
+`npm test`
+
 ## License
 
 Spiel Client is MIT licensed. See [license](LICENSE.md)
