@@ -122,6 +122,10 @@ srouter.setRouters(configDefault).resolve();
     })
     .resolve();
 </code></pre>
+				<p>Or use the navigo API directly:</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> router = srouter.router;
+router.updatePageLinks();
+</code></pre>
 				<p>Assign alias if you want generate links:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> configDefault: ConfigRouters = {
     routers: [{
@@ -145,10 +149,6 @@ srouter.setRouters(configDefault).resolve();
         <span class="hljs-keyword">if</span>(params &amp;&amp; params.number) params.number = +params.number + <span class="hljs-number">2</span>;
     }
 }
-</code></pre>
-				<p>Use the navigo API directly:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> router = srouter.router;
-router.updatePageLinks();
 </code></pre>
 				<p>And your hooks for expecific route:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hooks = {

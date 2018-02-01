@@ -71,6 +71,13 @@ srouter.setRouters()
     .resolve();
 ```
 
+Or use the navigo API directly:
+
+```typescript
+const router = srouter.router;
+router.updatePageLinks();
+```
+
 Assign alias if you want generate links:
 
 ```typescript
@@ -99,13 +106,6 @@ export const genericHooks = {
         if(params && params.number) params.number = +params.number + 2;
     }
 }
-```
-
-Use the navigo API directly:
-
-```typescript
-const router = srouter.router;
-router.updatePageLinks();
 ```
 
 And your hooks for expecific route:
