@@ -63,7 +63,7 @@ export interface Routers {
     */
     page: Page;
     /** Alias route to allow generate an url
-     * @since 0.3.0
+     * @since 0.3.3
      */
     alias?: string;
     /** It assigns hooks for this route 

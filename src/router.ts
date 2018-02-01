@@ -13,6 +13,7 @@ export class Router {
     /** This attribute include the navigo singleton which is possible
     * to access all its methods
     * @see <a href='https://github.com/krasimir/navigo#api' target="_blank">Navigo API</a>
+    * @since 0.3.3
     */
     router: Navigo;
     private defaultProps: any;
@@ -77,7 +78,7 @@ export class Router {
     /** It gets the link of the anchor element
     * @param link Anchor link which contains the data-navigo attribute
     * @return Path url
-    * @since 0.3.0
+    * @since 0.3.3
     */
     getLinkPath(link: HTMLAnchorElement): string {
         return this.router.getLinkPath(link);
@@ -86,7 +87,7 @@ export class Router {
     /** It disables a router, example: router.off('/example', handle) 
     * @param path Path of the route to disable
     * @param handler Handler of the route to disable
-    * @since 0.3.0
+    * @since 0.3.3
     */
     off(path: string, handler: Handler) {
         this.router.off(path, handler);
@@ -94,7 +95,7 @@ export class Router {
 
     /** It creates multiple routes 
     * @param routers It declares all the routers to create
-    * @since 0.3.0
+    * @since 0.3.3
     */
     onMultiple(routers: RoutersHandler) {
         this.router.on(routers);
@@ -178,7 +179,7 @@ export class Router {
     * @param method Method history could be pushState or replaceState
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method" target="_blank">pushState method</a>
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method" target="_blank">replaceState method</a>
-    * @since 0.3.0
+    * @since 0.3.3
     */
     historyAPIUpdateMethod(method?: string) {
         this.router.historyAPIUpdateMethod(method);
