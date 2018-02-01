@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "description": "Spiel Framework Frontend",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -25,7 +25,8 @@
         "injection-js": "^2.2.1",
         "navigo": "^7.0.0",
         "picodom": "^1.0.2",
-        "reflect-metadata": "^0.1.12"
+        "reflect-metadata": "^0.1.12",
+        "typescript": "2.6.2"
     },
     "devDependencies": {
         "@types/chai": "^4.1.2",
@@ -47,7 +48,6 @@
         "ts-loader": "^3.4.0",
         "ts-node": "^3.3.0",
         "typedoc": "^0.9.0",
-        "typescript": "2.6.2",
         "webpack": "^3.3.0"
     }
 }
