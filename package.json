@@ -21,9 +21,9 @@
     "author": "Francisco Jesus Navarro Cortes",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/spiel-framework/spiel/issues"
+        "url": "https://github.com/spiel-framework/spiel-client/issues"
     },
-    "homepage": "https://github.com/spiel-framework/spiel#readme",
+    "homepage": "https://github.com/spiel-framework/spiel-client#readme",
     "dependencies": {
         "@types/es6-shim": "^0.31.35",
         "@types/navigo": "^7.0.0",
