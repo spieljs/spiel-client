@@ -159,7 +159,7 @@ describe('Router', ()=> {
                 expect(window.location.hash).has.to.be.equal('#!/not-found');
                 expect(title.textContent).has.to.be.equal('Page not found sorry');
                 done();
-            })
+            }, 100)
         });
 
         after(()=> {
@@ -226,7 +226,7 @@ describe('Router', ()=> {
                 const element = document.getElementsByTagName('h1')[0];
                 expect(element.textContent).has.to.be.equal('Hello world');
                 done();
-            });
+            }, 100);
         });
 
         it('has to get the full link', () => {

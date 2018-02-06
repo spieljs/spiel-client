@@ -5,7 +5,7 @@ gulp.task("typedoc", function() {
         .src(["src/**/*.ts"])
         .pipe(typedoc({
             module: "commonjs",
-            target: "es6",
+            target: "es5",
             out: "docs/",
             name: "Spiel Client",
             readme: "READMEAPI.md"

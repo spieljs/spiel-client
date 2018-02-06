@@ -15,11 +15,11 @@ export class Router {
     * @see <a href='https://github.com/krasimir/navigo#api' target="_blank">Navigo API</a>
     * @since 0.3.3
     */
-    router: Navigo;
+    router!: Navigo;
     private defaultProps: any;
-    private configRouters: ConfigRouters;
-    private useHash: boolean;
-    private hash: string;
+    private configRouters!: ConfigRouters;
+    private useHash!: boolean;
+    private hash!: string;
 
     /**
     * It set all the path config with additionals settings
