@@ -261,6 +261,41 @@ describe('Component', () => {
 })
 ```
 
+## Make compatible with ES5 browsers
+
+tsconfig.json:
+
+```json
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"sourceMap": true,
+		"strict": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"declaration": true,
+		"outDir": "./lib",
+		"rootDir": ".",
+		"jsx": "react",
+		"jsxFactory": "h"
+	},
+	"include": [
+		"./src",
+		"./example"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
+```
+
+In your code: 
+```typescript
+import 'es6-shim'; // or every polyfill which you need
+import { srouter, ConfigRouters } from 'spiel-client';
+```
+
 ## Run Spiel Client tests
 
 `npm test`

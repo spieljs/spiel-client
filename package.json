@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "0.4.1",
+    "version": "0.4.3",
     "description": "Spiel Framework Frontend",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -25,10 +25,8 @@
     },
     "homepage": "https://github.com/spiel-framework/spiel-client#readme",
     "dependencies": {
-        "@types/es6-shim": "^0.31.35",
         "@types/navigo": "^7.0.0",
         "@types/reflect-metadata": "0.0.5",
-        "es6-shim": "^0.35.3",
         "injection-js": "^2.2.1",
         "navigo": "^7.0.0",
         "picodom": "^1.0.2",

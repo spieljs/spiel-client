@@ -22,6 +22,7 @@ module.exports = function(config) {
         karmaTypescriptConfig: {
             compilerOptions: {
                 "target": "es5",
+                "lib": ["es6", "dom"],
                 "module": "commonjs",
                 "strict": true,
                 "emitDecoratorMetadata": true,

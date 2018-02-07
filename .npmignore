@@ -10,3 +10,4 @@ docs
 READMEAPI.md
 gulpfile.js
 TESTS-Firefox_59.0.0_(Linux_0.0.0).xml
+tsconfig.json

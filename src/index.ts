@@ -1,4 +1,3 @@
-import 'es6-shim';
 export { srouter, Router} from './router';
 export { patch, h, Component, VNode } from "picodom";
 export { render } from "./render";
