@@ -11,7 +11,7 @@ export type Handler = ((params: Params, query: string) => void) | { as: string; 
 export type RoutersHandler = {[key: string]: Handler};
 
 /**
-* @see <a href='https://github.com/spiel-framework/spiel-client#create-your-page-components'>Page example</a>
+* @see <a href='https://github.com/spieljs/spiel-client#create-your-page-components'>Page example</a>
 */
 export interface Page {
     /** State object with all the properties of the page component */
@@ -21,7 +21,7 @@ export interface Page {
 }
 
 /**
-* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Generic Hooks example</a>
+* @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Generic Hooks example</a>
 */
 export interface GenericHooks {
     /** Before to resolve the route
@@ -36,7 +36,7 @@ export interface GenericHooks {
 }
 
 /**
-* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Hooks example</a>
+* @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Hooks example</a>
 */
 export interface Hooks {
     /** Before to resolve the route
@@ -79,7 +79,7 @@ export interface Routers {
 }
 
 /**
-* @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Config routes example</a> 
+* @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Config routes example</a> 
 */
 export interface ConfigRouters {
     /** The main URL of the application. without parameters 

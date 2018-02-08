@@ -68,7 +68,7 @@ export class Router {
     * @param path Path of the route to genarate
     * @param params Params included in the url to generate
     * @return Url
-    * @see <a href='https://github.com/spiel-framework/spiel-client#first-config-you-routes'>Generate links</a>
+    * @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Generate links</a>
     * @since 0.2.1
     */
     generate(path: string, params?: Params):string {

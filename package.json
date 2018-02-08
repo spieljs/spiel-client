@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "0.4.5",
+    "version": "0.4.6",
     "description": "Spiel Framework Frontend",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/spiel-framework/spiel-client.git"
+        "url": "git+https://github.com/spieljs/spiel-client.git"
     },
     "keywords": [
         "frontend",
@@ -21,9 +21,9 @@
     "author": "Francisco Jesus Navarro Cortes",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/spiel-framework/spiel-client/issues"
+        "url": "https://github.com/spieljs/spiel-client/issues"
     },
-    "homepage": "https://github.com/spiel-framework/spiel-client#readme",
+    "homepage": "https://github.com/spieljs/spiel-client#readme",
     "dependencies": {
         "@types/navigo": "^7.0.0",
         "navigo": "^7.0.0",

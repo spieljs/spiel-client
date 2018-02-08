@@ -6,5 +6,4 @@ example
 package-lock.json
 coverage
 TESTS-Firefox_59.0.0_(Linux_0.0.0).xml
-READMEAPI.md
 .vscode

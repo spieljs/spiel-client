@@ -3,7 +3,7 @@
 Spiel client is a flexible and light frontend framework to make easier create a complex and modern applications for the client side. It joins two light but powerful libraries: [Picodom](https://github.com/picodom/picodom) and [Navigo](https://github.com/krasimir/navigo).
 
 ## Api documentation
-* [Spiel client API](https://spiel-framework.github.io/spiel-client/)
+* [Spiel client API](https://spieljs.github.io/spiel-client/)
 
 ## Examples
 * [Simple Spiel Client Example](https://github.com/spiel-examples/simple-spiel-client-example)
