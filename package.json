@@ -1,7 +1,7 @@
 {
     "name": "spiel-client",
     "version": "0.4.6",
-    "description": "Spiel Framework Frontend",
+    "description": "Frontend framework to make easier to write frontend applications",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
     "scripts": {
