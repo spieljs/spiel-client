@@ -109,4 +109,10 @@ export interface ConfigRouters {
     * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
     */
     routers?: Array<{[Router in keyof Routers] :any}>;
+    /**
+    * Name of the aplication which will use for the root element
+    * @default app
+    * @since 1.0.0
+    */
+    root?: string
 }

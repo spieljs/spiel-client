@@ -1,13 +1,21 @@
 import { State, View} from './helpers';
-import { patch } from 'picodom';
+import { patch , h} from 'picodom';
 
-let node: any;
+let element: Element;
 
 /**
- * Render function creates or updates the page with its componets 
+ * It creates the page with its componets 
  * @param view  The view JSX template of the page.
  * @param state The state object property of the page
+ * @param root The root element
  */
-export function render(view: View, state: State) {
-    patch(node, (node = view(state)));
+export function goPath(view: View, state: State, root: string): void {
+    element = patch(view(state), document.getElementById(root));
+}
+
+/**
+* It updates the page with its components
+*/
+export function render(view: View, state: State): Element {
+    return patch(view(state), element);
 }

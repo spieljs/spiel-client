@@ -1,6 +1,7 @@
 import { ConfigRouters, Routers, State, Params, Hooks,
     Handler, RoutersHandler } from "./helpers";
-import { render } from "./render";
+import { goPath } from "./render";
+import { h, patch } from "picodom";
 import Navigo = require('navigo');
 
 /**
@@ -20,6 +21,7 @@ export class Router {
     private configRouters!: ConfigRouters;
     private useHash!: boolean;
     private hash!: string;
+    private root!: string;
 
     /**
     * It set all the path config with additionals settings
@@ -31,13 +33,23 @@ export class Router {
         this.configRouters = configRouters || {};
         this.useHash = (this.configRouters.useHash !== undefined) ?
             this.configRouters.useHash : true;
-        this.hash = this.configRouters.hash || '#';
+        this.hash = this.configRouters.hash || "#";
+        this.root = this.configRouters.root || "app";
+        this.createBody();
         this.router = new Navigo(this.configRouters.rootPath || null, this.useHash, this.hash);
         if(this.configRouters.genericHooks) this.router.hooks(this.configRouters.genericHooks);
         this.defaultProps = this.configRouters.defaultProps;
         if(this.configRouters.routers) this.build(this.configRouters.routers);
         this.checkNotFound();
         return this;
+    }
+
+    createBody() {
+        const root = document.getElementById(this.root);
+        if(!root) {
+            const node = h("div", { id: this.root});
+            patch(node, document.body);
+        }
     }
 
     /**
@@ -211,7 +223,7 @@ export class Router {
         state.params = params;
         state.query = query;
         state.defaultProps = route.defaultProps || this.defaultProps;
-        render(page.view, state);
+        goPath(page.view, state, this.root);
     }
 
     private checkNotFound() {

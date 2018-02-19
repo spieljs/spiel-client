@@ -1,4 +1,4 @@
-import {h, Component, render, State, Page, VNode} from '../../src';
+import {h, Component, render, State, Page, VNode, goPath} from '../../src';
 
 export class PageTest implements Page {
     state: State = {
@@ -8,7 +8,7 @@ export class PageTest implements Page {
     view(state: State): VNode<any> {
         const changeTitle = () => {
             state.title = 'Hello World';
-            render(pageTest.view, state);
+            goPath(pageTest.view, state, "app");
         }
 
         return(

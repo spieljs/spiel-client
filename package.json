@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "0.4.6",
+    "version": "1.0.0",
     "description": "Frontend framework to make easier to write frontend applications",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -26,8 +26,8 @@
     "homepage": "https://github.com/spieljs/spiel-client#readme",
     "dependencies": {
         "@types/navigo": "^7.0.0",
-        "navigo": "^7.0.0",
-        "picodom": "^1.0.2",
+        "navigo": "^7.1.1",
+        "picodom": "github:picodom/picodom.git#2.0",
         "typescript": "^2.7.1"
     },
     "devDependencies": {
