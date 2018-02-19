@@ -47,7 +47,9 @@ export class Router {
     createBody() {
         const root = document.getElementById(this.root);
         if(!root) {
-            const node = h("div", { id: this.root});
+            const node = h("body", {}, [ 
+                h("div", { id: this.root})
+            ]);
             patch(node, document.body);
         }
     }
