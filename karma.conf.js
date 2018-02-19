@@ -1,6 +1,6 @@
 module.exports = function(config) {
     config.set({
-        browsers: ['Firefox'],
+        browsers: ['jsdom','Firefox', 'Chrome', 'Opera'],
         frameworks: ['mocha', 'karma-typescript'],
         files: [
             "src/**/*.ts",
@@ -43,6 +43,6 @@ module.exports = function(config) {
             output: 'full'
         },
 
-        singleRun: false
+        singleRun: true
     });
 }

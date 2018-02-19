@@ -16,6 +16,6 @@ export function goPath(view: View, state: State, root: string): void {
 /**
 * It updates the page with its components
 */
-export function render(view: View, state: State): Element {
-    return patch(view(state), element);
+export function render(view: View, state: State): void {
+    element = patch(view(state), element);
 }
