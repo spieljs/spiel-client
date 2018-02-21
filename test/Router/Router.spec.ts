@@ -217,7 +217,7 @@ describe('Router', ()=> {
         it('has to create a default route', (done)=> {
             srouter.pause();
             srouter.onDefault(() => {
-                render(testPage1.view, testPage1.state);
+                document.body.appendChild(render(testPage1.view, testPage1.state));
             });
             srouter.resume();
             srouter.resolve();

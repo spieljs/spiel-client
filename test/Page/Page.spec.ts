@@ -6,8 +6,11 @@ import {pageTest} from './mocks';
 describe("Page", () => {
     let nodes: VNode<any>;
     before(()=> {
-        const node = h("div", { id: "app"});
-        patch(node, document.body);
+        const node = h("div", {});
+        const elm = document.createElement("div");
+        elm.setAttribute("id", "app");
+        document.body.appendChild(elm);
+        patch(node, document.getElementById("app"));
         nodes = h(pageTest.view, pageTest.state);
     });
 

@@ -1,6 +1,6 @@
 import { ConfigRouters, Routers, State, Params, Hooks,
     Handler, RoutersHandler } from "./helpers";
-import { goPath } from "./render";
+import { render } from "./render";
 import { h, patch } from "picodom";
 import Navigo = require('navigo');
 
@@ -22,6 +22,7 @@ export class Router {
     private useHash!: boolean;
     private hash!: string;
     private root!: string;
+    private element!: Element;
 
     /**
     * It set all the path config with additionals settings
@@ -35,23 +36,13 @@ export class Router {
             this.configRouters.useHash : true;
         this.hash = this.configRouters.hash || "#";
         this.root = this.configRouters.root || "app";
-        this.createBody();
+        this.createRootElement();
         this.router = new Navigo(this.configRouters.rootPath || null, this.useHash, this.hash);
         if(this.configRouters.genericHooks) this.router.hooks(this.configRouters.genericHooks);
         this.defaultProps = this.configRouters.defaultProps;
         if(this.configRouters.routers) this.build(this.configRouters.routers);
         this.checkNotFound();
         return this;
-    }
-
-    createBody() {
-        const root = document.getElementById(this.root);
-        if(!root) {
-            const node = h("body", {}, [ 
-                h("div", { id: this.root})
-            ]);
-            patch(node, document.body);
-        }
     }
 
     /**
@@ -199,6 +190,19 @@ export class Router {
         this.router.historyAPIUpdateMethod(method);
     }
 
+    private createRootElement() {
+        const rootElement = document.getElementById(this.root);
+        const node = h("div", {});
+        if(!rootElement) {
+            const elm = document.createElement("div");
+            elm.setAttribute("id", this.root);
+            document.body.appendChild(elm);
+            this.element = patch(node, document.getElementById(this.root));
+        } else {
+            this.element = patch(node, document.getElementById(this.root))
+        }
+    }
+
     private build(configRouters: Array<Routers>, parentPath?: string) {
         configRouters.forEach((router, index) => {
             if(parentPath) router.path = `${parentPath}${router.path}`;
@@ -225,7 +229,7 @@ export class Router {
         state.params = params;
         state.query = query;
         state.defaultProps = route.defaultProps || this.defaultProps;
-        goPath(page.view, state, this.root);
+        render(page.view, state, this.element);
     }
 
     private checkNotFound() {
