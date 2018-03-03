@@ -1,4 +1,4 @@
-import { h, VNode } from "../../src"
+import { u, VNode } from "../../src"
 import { expect, assert } from "chai";
 
 import {componentTest} from './mocks';
@@ -6,7 +6,7 @@ import {componentTest} from './mocks';
 describe('Component', () => {
     let nodes: VNode<any>
     before(()=> {
-        nodes = h(componentTest.view, componentTest.state);
+        nodes = u(componentTest.view, componentTest.state);
     });
     it('has to be created', ()=> {
         const text: any = nodes.children.find((node: any) => node.nodeName === 'span');
@@ -14,9 +14,8 @@ describe('Component', () => {
     });
 
     it('has to exist its children', ()=> {
-        const child: any = nodes.children.find((node: any) => node.nodeName === 'div');     
+        const child: any = nodes.children.find((node: any) => node.nodeName === 'div');
         const text: any = child.children.find((node: any) => node.nodeName === 'span');
         expect(text.children[0]).has.to.be.equal("And this is its child");
     });
 })
-

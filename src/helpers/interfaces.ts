@@ -1,4 +1,4 @@
-import {VNode} from "picodom";
+import {VNode} from "ultradom";
 
 export type Keys = string
 export type State = {[k in Keys]: any}
@@ -25,7 +25,7 @@ export interface Page {
 */
 export interface GenericHooks {
     /** Before to resolve the route
-    * @param done To execute when finish async operation with done() 
+    * @param done To execute when finish async operation with done()
     * @param params Params of the path, example: /user:id => params.id
     */
     before?(done: (suppress?: boolean) => void, params?: Params): void;
@@ -40,7 +40,7 @@ export interface GenericHooks {
 */
 export interface Hooks {
     /** Before to resolve the route
-    * @param done To execute when finish async operation with done() 
+    * @param done To execute when finish async operation with done()
     * @param params Params of the path, example: /user:id => params.id
     */
     before?(done: (suppress?: boolean) => void, params?: Params): void;
@@ -58,19 +58,19 @@ export interface Hooks {
 export interface Routers {
     /** Page component path*/
     path: string;
-    /** Singleton Page component class 
-    * @see <a href="_helpers_interfaces_.page.html">Page</a> 
+    /** Singleton Page component class
+    * @see <a href="_helpers_interfaces_.page.html">Page</a>
     */
     page: Page;
     /** Alias route to allow generate an url
      * @since 0.3.3
      */
     alias?: string;
-    /** It assigns hooks for this route 
-    * @see <a href="_helpers_interfaces_.hooks.html">Hooks</a> 
+    /** It assigns hooks for this route
+    * @see <a href="_helpers_interfaces_.hooks.html">Hooks</a>
     */
     hooks?: Hooks;
-    /** It adds page childreen 
+    /** It adds page childreen
     * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
     */
     routers?: Array<{[Router in keyof Routers] :any}>;
@@ -79,10 +79,10 @@ export interface Routers {
 }
 
 /**
-* @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Config routes example</a> 
+* @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Config routes example</a>
 */
 export interface ConfigRouters {
-    /** The main URL of the application. without parameters 
+    /** The main URL of the application. without parameters
     *  then the router figures out the root URL based on your routes
     *  It is strongly recommend to set a root value
     */

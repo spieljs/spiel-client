@@ -28,7 +28,8 @@
         "@types/navigo": "^7.0.0",
         "navigo": "^7.1.1",
         "picodom": "github:picodom/picodom.git#2.0",
-        "typescript": "^2.7.1"
+        "typescript": "^2.7.1",
+        "ultradom": "^2.0.0"
     },
     "devDependencies": {
         "@types/chai": "^4.1.2",

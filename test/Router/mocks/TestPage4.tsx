@@ -1,4 +1,4 @@
-import {h, Component, render, State, JSXElements} from '../../../src';
+import {u, Component, render, State, JSXElements} from '../../../src';
 
 export class TestPage4 {
     state = {

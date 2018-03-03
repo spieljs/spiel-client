@@ -1,4 +1,4 @@
-import { h, Component, Page, State, VNode, Children, JSXElements } from '../../src';
+import { u, Component, Page, State, VNode, Children, JSXElements } from '../../src';
 
 interface Show {
     value: string
@@ -16,6 +16,7 @@ export class ComponentTest implements Page {
             </Show>
         )
     }
+
 }
 
 function Show ({value}: Show, children: Children) {

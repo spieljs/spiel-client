@@ -1,4 +1,4 @@
-import {ConfigRouters, h} from '../../src';
+import {ConfigRouters} from '../../src';
 
 import {genericHooks, hooks} from './hooks';
 

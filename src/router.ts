@@ -1,7 +1,7 @@
 import { ConfigRouters, Routers, State, Params, Hooks,
     Handler, RoutersHandler } from "./helpers";
 import { render } from "./render";
-import { h, patch } from "picodom";
+import { patch, createNode as u } from "ultradom";
 import Navigo = require('navigo');
 
 /**
@@ -61,7 +61,7 @@ export class Router {
     destroy() {
         this.router.destroy();
     }
-    
+
     /**It disables the route if History API is not supported
      * @since 0.2.1
      */
@@ -89,7 +89,7 @@ export class Router {
         return this.router.getLinkPath(link);
     }
 
-    /** It disables a router, example: router.off('/example', handle) 
+    /** It disables a router, example: router.off('/example', handle)
     * @param path Path of the route to disable
     * @param handler Handler of the route to disable
     * @since 0.3.3
@@ -98,7 +98,7 @@ export class Router {
         this.router.off(path, handler);
     }
 
-    /** It creates multiple routes 
+    /** It creates multiple routes
     * @param routers It declares all the routers to create
     * @since 0.3.3
     */
@@ -106,7 +106,7 @@ export class Router {
         this.router.on(routers);
     }
 
-    /**It adds new route 
+    /**It adds new route
     * @param path Path of the route to add
     * @param handler Handler of the route to add
     * @param hooks Hooks of execution when access to the route
@@ -124,8 +124,8 @@ export class Router {
     onDefault(handler: Handler, hooks?: Hooks){
         this.router.on(handler, hooks);
     }
-    
-    /**It gives you a chance to change the route without resolving. Make sure that you call 
+
+    /**It gives you a chance to change the route without resolving. Make sure that you call
     * @param change false value returns to the previous working state
     * @since 0.2.1
     */
@@ -152,7 +152,7 @@ export class Router {
         this.router.resume();
     }
 
-    /** 
+    /**
     * @return Returns an object with the format of { url: <string>, query: <string> } matching the latest resolved route
     * @since 0.2.1
     */
@@ -177,9 +177,9 @@ export class Router {
         this.router.updatePageLinks();
     }
 
-    /**By default the router uses History.pushState and changes that to History.replaceState 
+    /**By default the router uses History.pushState and changes that to History.replaceState
     * if the router is paused. If you need to always use pushState even
-    * if the router is paused use this method 
+    * if the router is paused use this method
     * like router.historyAPIUpdateMethod('pushState') after calling pause
     * @param method Method history could be pushState or replaceState
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method" target="_blank">pushState method</a>
@@ -192,7 +192,7 @@ export class Router {
 
     private createRootElement() {
         const rootElement = document.getElementById(this.root);
-        const node = h("div", {});
+        const node = u("div", {});
         if(!rootElement) {
             const elm = document.createElement("div");
             elm.setAttribute("id", this.root);

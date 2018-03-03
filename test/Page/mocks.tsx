@@ -1,4 +1,4 @@
-import {h, Component, render, State, Page, VNode} from '../../src';
+import {u, Component, render, State, Page, VNode} from '../../src';
 
 export class PageTest implements Page {
     state: State = {
