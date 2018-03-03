@@ -1,4 +1,4 @@
-import { u, VNode, patch } from "../../src"
+import { createNode as u, VNode, patch } from "../../src"
 import { expect, assert } from "chai";
 
 import {pageTest} from './mocks';

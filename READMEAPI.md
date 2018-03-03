@@ -50,26 +50,22 @@ const configSettings: ConfigRouters = {
 srouter.setRouters(configDefault).resolve();
 ```
 
-You can also declare the routes manually and after resolve it:
+You can also use the navigo API directly:
 
 ```typescript
-srouter.setRouters()
-    .onMultiple({
-        '/user/:id': { 
-            as: 'user', uses: (params, query) => {
-                Object.assign(page2.state, params);
-                render(page2.view, page2.state);
-            } 
-        }
-    })
-    .resolve();
-```
 
-Or use the navigo API directly:
+srouter.setRouters();
 
-```typescript
 const router = srouter.router;
-router.updatePageLinks();
+router.on({
+  '/user/:id': {
+    as: 'user', uses: (params, query) => {
+      Object.assign(page2.state, params);
+      render(page2.view, page2.state);
+    }
+  }
+});
+router.resolve();
 ```
 
 Assign alias if you want generate links:
@@ -85,6 +81,7 @@ const configDefault: ConfigRouters = {
 };
 
 srouter.setRouters(configDefault).resolve();
+const router = srouter.router;
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
@@ -123,8 +120,8 @@ export const hooks = {
 ```
 ### Create your page components
 
-```jsx
-import { h, Component, Page, State, VNode, Children, JSXElements } from 'spiel-client';
+```typescript
+import { createNode, Component, Page, State, VNode, Children, JSXElements } from 'spiel-client';
 
 interface Show {
     value: string
@@ -159,7 +156,7 @@ export const page1 = new Page1();
 **Note:** you need to export the singleton of the class and always import `h` and `Component` to render the views
 
 To know more about the views see more in [picodom](https://github.com/picodom/picodom).
-All the picodom functionalities like `patch`, `h` etc.. are available in spiel-client
+All the picodom functionalities like `patch`, `h` etc... are available in spiel-client
 
 ### Config your project
 
@@ -178,7 +175,7 @@ This is a tsconfig example:
         "outDir": "./lib",
         "rootDir": ".",
         "jsx": "react",
-        "jsxFactory": "h"
+        "jsxFactory": "createNode"
     },
     "include": [
         "./src",
@@ -190,14 +187,14 @@ This is a tsconfig example:
 }
 ```
 
-Remember always to put `h` in the `jsxFactory` option.
+Remember always to put `createNode` in the `jsxFactory` option.
 
 ### Test your code
 
 Create your mocks:
 
-```jsx
-import { h, Component, Page, State, VNode, Children,    JSXElements } from 'spiel-client';
+```typescript
+import { createNode, Component, Page, State, VNode, Children, JSXElements } from 'spiel-client';
 
 interface Show {
     value: string
@@ -232,7 +229,7 @@ export const componentTest = new ComponentTest();
 and your file spec:
 
 ```typescript
-import { h, VNode } from "spiel-client";
+import { createNode as u, VNode } from "spiel-client";
 import { expect, assert } from "chai";
 
 import {componentTest} from './mocks';
@@ -240,7 +237,7 @@ import {componentTest} from './mocks';
 describe('Component', () => {
     let nodes: VNode<any>
     before(()=> {
-        nodes = h(componentTest.view, componentTest.state);
+        nodes = u(componentTest.view, componentTest.state);
     });
     it('has to be created', ()=> {
         const text: any = nodes.children.find((node: any) => node.type === 'span');
@@ -272,7 +269,7 @@ tsconfig.json:
 		"outDir": "./lib",
 		"rootDir": ".",
 		"jsx": "react",
-		"jsxFactory": "h"
+		"jsxFactory": "createNode"
 	},
 	"include": [
 		"./src",
@@ -284,7 +281,7 @@ tsconfig.json:
 }
 ```
 
-In your code: 
+In your code:
 ```typescript
 import 'es6-shim'; // or every polyfill which you need
 import { srouter, ConfigRouters } from 'spiel-client';

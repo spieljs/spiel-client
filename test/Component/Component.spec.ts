@@ -1,4 +1,4 @@
-import { u, VNode } from "../../src"
+import { createNode as u, VNode } from "../../src"
 import { expect, assert } from "chai";
 
 import {componentTest} from './mocks';

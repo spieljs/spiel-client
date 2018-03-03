@@ -1,4 +1,4 @@
-import {u, Component, render, Page, State} from '../../../src';
+import {createNode, Component, render, Page, State} from '../../../src';
 
 export class NotFound implements Page{
     state = {

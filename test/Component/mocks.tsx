@@ -1,4 +1,4 @@
-import { u, Component, Page, State, VNode, Children, JSXElements } from '../../src';
+import { createNode, Component, Page, State, VNode, Children, JSXElements } from '../../src';
 
 interface Show {
     value: string

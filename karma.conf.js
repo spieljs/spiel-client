@@ -1,6 +1,6 @@
 module.exports = function(config) {
     config.set({
-        browsers: ['jsdom','Firefox','Chrome','Opera'],
+        browsers: ['jsdom'],
         frameworks: ['mocha', 'karma-typescript'],
         files: [
             "src/**/*.ts",
@@ -29,7 +29,7 @@ module.exports = function(config) {
                 "experimentalDecorators": true,
                 "declaration": true,
                 "jsx": "react",
-                "jsxFactory": "u",
+                "jsxFactory": "createNode",
                 "sourceMap": true
             }
         },
