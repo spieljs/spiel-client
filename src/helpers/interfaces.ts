@@ -21,7 +21,8 @@ export interface IPage {
 }
 
 /**
- * @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Generic Hooks example</a>
+ * @see <a href='https://github.com/spieljs/spiel-client/tree/picodom-test#set-your-generic-hooks-for-all-the-routes'>
+ * Generic Hooks example</a>
  */
 export interface IGenericHooks {
     /** Before to resolve the route
@@ -37,7 +38,8 @@ export interface IGenericHooks {
 }
 
 /**
- * @see <a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Hooks example</a>
+ * @see <a href='https://github.com/spieljs/spiel-client/tree/picodom-test#and-your-hooks-for-expecific-route'>
+ * Hooks example</a>
  */
 export interface IHooks {
     /** Before to resolve the route
