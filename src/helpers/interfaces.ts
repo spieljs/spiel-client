@@ -27,7 +27,8 @@ export interface IPage {
 export interface IGenericHooks {
     /** Before to resolve the route
      * @param done To execute when finish async operation with done()
-     * @param params Params of the path, example: /user:id => params.id
+     * @param params Params of the path,
+     * @example: /user:id => params.id
      */
     before?(done: (suppress?: boolean) => void, params?: Params): void;
     /** After resolving
@@ -65,7 +66,7 @@ export interface IRouters {
     /** Page component path */
     path: string;
     /** Singleton Page component class
-     * @see <a href="_helpers_interfaces_.page.html">Page</a>
+     * @see <a href="_helpers_interfaces_.ipage.html">IPage</a>
      */
     page: IPage;
     /** Alias route to allow generate an url
@@ -73,11 +74,11 @@ export interface IRouters {
      */
     alias?: string;
     /** It assigns hooks for this route
-     * @see <a href="_helpers_interfaces_.hooks.html">Hooks</a>
+     * @see <a href="_helpers_interfaces_.ihooks.html">IHooks</a>
      */
     hooks?: IHooks;
     /** It adds page childreen
-     * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
+     * @see <a href="_helpers_interfaces_.irouters.html">IRouters</a>
      */
     routers?: Array<{[Router in keyof IRouters] : any}>;
     /** It assigns default props state for this route */
@@ -106,7 +107,7 @@ export interface IConfigRouters {
      */
     useHash?: boolean;
     /** Generic hooks will run in every path access
-     * @see <a href="_helpers_interfaces_.generichooks.html">GenericHooks</a>
+     * @see <a href="_helpers_interfaces_.igenerichooks.html">IGenericHooks</a>
      */
     genericHooks?: IGenericHooks;
     /** Hooks for not found page */
@@ -118,7 +119,7 @@ export interface IConfigRouters {
     /** It assigns to state for every page default props */
     defaultProps?: any;
     /** It set default props in every path page
-     * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
+     * @see <a href="_helpers_interfaces_.irouters.html">IRouters</a>
      */
     routers?: Array<{[Router in keyof IRouters] : any}>;
     /**
