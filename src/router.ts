@@ -7,7 +7,6 @@ import { Handler, IConfigRouters, IHooks, IRouters, IRoutersHandler, Params } fr
  * Router class handle whole the router config
  * for single page application. It use Navigo
  * @see <a href='https://github.com/krasimir/navigo' target="_blank">Navigo</a>
- * @preferred
  */
 export class Router {
     /** This attribute include the navigo singleton which is possible
@@ -51,7 +50,8 @@ export class Router {
     /**
      * It goes to the path indicated
      * @param path Path of the route, example: /example
-     * @param absolute True allow to pass absolute path, example: router.go("http://localhost/example", true)
+     * @param absolute True allow to pass absolute path
+     * @example router.go("http://localhost/example", true)
      */
     public go(path: string, absolute?: boolean) {
         this.router.navigate(path, absolute);

@@ -30,7 +30,8 @@ export interface IGenericHooks {
      */
     before?(done: (suppress?: boolean) => void, params?: Params): void;
     /** After resolving
-     * @param params Params of the path, example: /user:id => params.id
+     * @param params Params of the path
+     * @example: /user:id => params.id
      */
     after?(params?: Params): void;
 }
@@ -41,15 +42,18 @@ export interface IGenericHooks {
 export interface IHooks {
     /** Before to resolve the route
      * @param done To execute when finish async operation with done()
-     * @param params Params of the path, example: /user:id => params.id
+     * @param params Params of the path
+     * @example: /user:id => params.id
      */
     before?(done: (suppress?: boolean) => void, params?: Params): void;
     /** After resolving
-     * @param params Params of the path, example: /user:id => params.id
+     * @param params Params of the path
+     * @example: /user:id => params.id
      */
     after?(params?: Params): void;
     /** When you are going out of the that route
-     * @param params Params of the path, example: /user:id => params.id
+     * @param params Params of the path
+     * @example: /user:id => params.id
      */
     leave?(params?: Params): void;
     already?(params?: Params): void;
@@ -89,11 +93,15 @@ export interface IConfigRouters {
     rootPath?: string;
     /** The default path which the application goes when it starts */
     default?: string;
-    /** It enable not found page [default: false] */
+    /** It enable not found page
+     * @default false
+     */
     notFound?: boolean;
     /** Path of not found page */
     notFoundPath?: string;
-    /** It enable useHash [default true] */
+    /** It enable useHash
+     * @default true
+     */
     useHash?: boolean;
     /** Generic hooks will run in every path access
      * @see <a href="_helpers_interfaces_.generichooks.html">GenericHooks</a>
@@ -101,11 +109,13 @@ export interface IConfigRouters {
     genericHooks?: IGenericHooks;
     /** Hooks for not found page */
     notFoundHooks?: IHooks;
-    /** It set the hash route [deafault: #] */
+    /** It set the hash route
+     * @default #
+     */
     hash?: string;
     /** It assigns to state for every page default props */
     defaultProps?: any;
-    /** It set every path page
+    /** It set default props in every path page
      * @see <a href="_helpers_interfaces_.routers.html">Routers</a>
      */
     routers?: Array<{[Router in keyof IRouters] : any}>;

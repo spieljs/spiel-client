@@ -48,7 +48,7 @@ export const configSettings: IConfigRouters = {
 srouter.setRouters(configDefault).resolve();
 ```
 
-You can also use the navigo API directly:
+#### You can also use the navigo API directly:
 
 ```typescript
 
@@ -66,7 +66,7 @@ router.on({
 router.resolve();
 ```
 
-Assign alias if you want generate links:
+#### Assign alias if you want generate links:
 
 ```typescript
 const configDefault: IConfigRouters = {
@@ -83,7 +83,7 @@ const router = srouter.router;
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
-Set your generic hooks for all the routes:
+#### Set your generic hooks for all the routes:
 
 ```typescript
 export const genericHooks: IGenericHooks = {
@@ -101,7 +101,7 @@ export const genericHooks: IGenericHooks = {
 };
 ```
 
-And your hooks for expecific route:
+#### And your hooks for expecific route:
 
 ```typescript
 export const hooks: IHooks = {

@@ -108,7 +108,7 @@
 
 srouter.setRouters(configDefault).resolve();
 </code></pre>
-				<p>You can also use the navigo API directly:</p>
+				<h4 id="you-can-also-use-the-navigo-api-directly-">You can also use the navigo API directly:</h4>
 				<pre><code class="lang-typescript">
 srouter.setRouters();
 
@@ -123,7 +123,7 @@ router.on({
 });
 router.resolve();
 </code></pre>
-				<p>Assign alias if you want generate links:</p>
+				<h4 id="assign-alias-if-you-want-generate-links-">Assign alias if you want generate links:</h4>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> configDefault: IConfigRouters = {
     routers: [{
         alias: <span class="hljs-string">'user'</span>
@@ -137,7 +137,7 @@ srouter.setRouters(configDefault).resolve();
 <span class="hljs-keyword">const</span> router = srouter.router;
 <span class="hljs-built_in">console</span>.log(router.generate(<span class="hljs-string">'user'</span>, {id: <span class="hljs-number">4</span>})); <span class="hljs-comment">// #/user/4</span>
 </code></pre>
-				<p>Set your generic hooks for all the routes:</p>
+				<h4 id="set-your-generic-hooks-for-all-the-routes-">Set your generic hooks for all the routes:</h4>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> genericHooks: IGenericHooks = {
     after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
         <span class="hljs-keyword">if</span> (params &amp;&amp; params.number) {
@@ -152,7 +152,7 @@ srouter.setRouters(configDefault).resolve();
     },
 };
 </code></pre>
-				<p>And your hooks for expecific route:</p>
+				<h4 id="and-your-hooks-for-expecific-route-">And your hooks for expecific route:</h4>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hooks: IHooks = {
     after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
         <span class="hljs-keyword">if</span> (params) {
