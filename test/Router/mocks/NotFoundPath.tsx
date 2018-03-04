@@ -1,16 +1,16 @@
-import {h, Component, render, Page, State} from '../../../src';
+import {createNode, IPage, render, State} from "../../../src";
 
-export class NotFound implements Page{
-    state = {
-        message: 'Page not found sorry'
-    }
+export class NotFound implements IPage {
+    public state = {
+        message: "Page not found sorry",
+    };
 
-    view(state: State) {
+    public view(state: State) {
         return (
             <div>
                 <h1>{state.message}</h1>
             </div>
-        )
+        );
     }
 }
 

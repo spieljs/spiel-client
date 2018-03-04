@@ -1,37 +1,37 @@
-import {h, Component, render, srouter, State, JSXElements } from '../../../src';
+import {createNode, JSXElements, render, srouter, State } from "../../../src";
 
 export class TestPage1 {
-    state = {
-        title: "Hello world"
-    }
+    public state = {
+        title: "Hello world",
+    };
 
-    view(state: State): JSXElements {
+    public view(state: State): JSXElements {
         return (
             <div>
                 <h1>{state.title}</h1>
                 <h2>{state.defaultProps}</h2>
-                <button id ='child'
+                <button id ="child"
                     onclick = {() => {
-                        srouter.go('/home/child/5');
+                        srouter.go("/home/child/5");
                     }}
                 >go to child</button>
-                <button id='grandchild'
+                <button id="grandchild"
                     onclick = {() => {
-                        srouter.go('/home/child/2/child2/test?state=good');
+                        srouter.go("/home/child/2/child2/test?state=good");
                     }}
                 >go to child 2</button>
-                <button id='brother'
+                <button id="brother"
                     onclick = {() => {
-                        srouter.go('/home/brother');
+                        srouter.go("/home/brother");
                     }}
                 >go to child brother</button>
-                <button id='page-component'
+                <button id="page-component"
                     onclick = {() => {
-                        srouter.go('/child');
+                        srouter.go("/child");
                     }}
                 >go to child with component</button>
             </div>
-        )
+        );
     }
 }
 

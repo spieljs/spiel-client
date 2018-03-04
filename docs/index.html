@@ -68,140 +68,152 @@
 				<p>Spiel client is a flexible and light frontend framework to make easier create a complex and modern applications for the client side. It joins two light but powerful libraries: <a href="https://github.com/picodom/picodom">Picodom</a> and <a href="https://github.com/krasimir/navigo">Navigo</a>.</p>
 				<h2 id="how-use-it">How use it</h2>
 				<h3 id="first-config-you-routes">First config you routes</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {ConfigRouters, srouter} <span class="hljs-keyword">from</span> <span class="hljs-string">'spiel-client'</span>;
-
-<span class="hljs-keyword">import</span> {genericHooks, hooks} <span class="hljs-keyword">from</span> <span class="hljs-string">'./hooks'</span>;
-
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {IConfigRouters} <span class="hljs-keyword">from</span> <span class="hljs-string">"spiel-client"</span>;
+<span class="hljs-keyword">import</span> {genericHooks, hooks} <span class="hljs-keyword">from</span> <span class="hljs-string">"./hooks"</span>;
 <span class="hljs-keyword">import</span> {page1, page2, page3, page4, notFound} <span class="hljs-keyword">from</span> <span class="hljs-string">'./Pages'</span>
 
-<span class="hljs-keyword">const</span> configSettings: ConfigRouters = {
-    rootPath: <span class="hljs-string">'http://localhost:9876/'</span>,
-    <span class="hljs-keyword">default</span>: <span class="hljs-string">'/home'</span>,
-    useHash: <span class="hljs-literal">true</span>,
-    genericHooks: genericHooks,
-    defaultProps: <span class="hljs-string">'default'</span>,
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> configSettings: IConfigRouters = {
+    <span class="hljs-keyword">default</span>: <span class="hljs-string">"/home"</span>,
+    defaultProps: <span class="hljs-string">"default"</span>,
+    genericHooks,
+    hash: <span class="hljs-string">"#!"</span>,
     notFound: <span class="hljs-literal">true</span>,
-    hash: <span class="hljs-string">'#!'</span>,
-    notFoundPath: <span class="hljs-string">'/not-found'</span>,
+    notFoundPath: <span class="hljs-string">"/not-found"</span>,
+    rootPath: <span class="hljs-string">"http://localhost:9876/"</span>,
     routers: [{
-        path: <span class="hljs-string">'/home'</span>,
-        page: page1,
+        page: Page1,
+        path: <span class="hljs-string">"/home"</span>,
         routers: [{
-            path: <span class="hljs-string">'/child/:number'</span>,
-            page: page2,
-            alias: <span class="hljs-string">'child'</span>,
-            hooks: hooks,
+            alias: <span class="hljs-string">"child"</span>,
+            hooks,
+            page: Page2,
+            path: <span class="hljs-string">"/child/:number"</span>,
             routers: [{
-                path: <span class="hljs-string">'/child2/:word'</span>,
-                alias: <span class="hljs-string">'grandchild'</span>,
-                page: page3
-            }]
-        },{
-            path: <span class="hljs-string">'/brother'</span>,
-            defaultProps: <span class="hljs-string">'my own prop'</span>,
-            page: page4
-        }]
+                alias: <span class="hljs-string">"grandchild"</span>,
+                page: Page3,
+                path: <span class="hljs-string">"/child2/:word"</span>,
+            }],
+        }, {
+            defaultProps: <span class="hljs-string">"my own prop"</span>,
+            page: Page4,
+            path: <span class="hljs-string">"/brother"</span>,
+        }],
     },
     {
-        path: <span class="hljs-string">'/not-found'</span>,
-        page: notFound
-    }]
+        page: notFound,
+        path: <span class="hljs-string">"/not-found"</span>,
+    }],
+    useHash: <span class="hljs-literal">true</span>,
 };
 
 srouter.setRouters(configDefault).resolve();
 </code></pre>
-				<p>You can also declare the routes manually and after resolve it:</p>
-				<pre><code class="lang-typescript">srouter.setRouters()
-    .onMultiple({
-        <span class="hljs-string">'/user/:id'</span>: { 
-            <span class="hljs-keyword">as</span>: <span class="hljs-string">'user'</span>, uses: <span class="hljs-function">(<span class="hljs-params">params, query</span>) =&gt;</span> {
-                <span class="hljs-built_in">Object</span>.assign(page2.state, params);
-                render(page2.view, page2.state);
-            } 
-        }
-    })
-    .resolve();
+				<h4 id="you-can-also-use-the-navigo-api-directly-">You can also use the navigo API directly:</h4>
+				<pre><code class="lang-typescript">
+srouter.setRouters();
+
+<span class="hljs-keyword">const</span> router = srouter.router;
+router.on({
+  <span class="hljs-string">'/user/:id'</span>: {
+    <span class="hljs-keyword">as</span>: <span class="hljs-string">'user'</span>, uses: <span class="hljs-function">(<span class="hljs-params">params, query</span>) =&gt;</span> {
+      <span class="hljs-built_in">Object</span>.assign(page2.state, params);
+      render(page2.view, page2.state);
+    }
+  }
+});
+router.resolve();
 </code></pre>
-				<p>Or use the navigo API directly:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> router = srouter.router;
-router.updatePageLinks();
-</code></pre>
-				<p>Assign alias if you want generate links:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> configDefault: ConfigRouters = {
+				<h4 id="assign-alias-if-you-want-generate-links-">Assign alias if you want generate links:</h4>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> configDefault: IConfigRouters = {
     routers: [{
-        path: <span class="hljs-string">'/user/:id'</span>,
+        alias: <span class="hljs-string">'user'</span>
         <span class="hljs-keyword">default</span>: <span class="hljs-string">'/user'</span>
         page: page1,
-        alias: <span class="hljs-string">'user'</span>
+        path: <span class="hljs-string">'/user/:id'</span>,
     }]
 };
 
 srouter.setRouters(configDefault).resolve();
+<span class="hljs-keyword">const</span> router = srouter.router;
 <span class="hljs-built_in">console</span>.log(router.generate(<span class="hljs-string">'user'</span>, {id: <span class="hljs-number">4</span>})); <span class="hljs-comment">// #/user/4</span>
 </code></pre>
-				<p>Set your generic hooks for all the routes:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> genericHooks = {
+				<h4 id="set-your-generic-hooks-for-all-the-routes-">Set your generic hooks for all the routes:</h4>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> genericHooks: IGenericHooks = {
+    after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (params &amp;&amp; params.number) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
+    },
     before: <span class="hljs-function">(<span class="hljs-params">done: (<span class="hljs-params">suppress?: <span class="hljs-built_in">boolean</span></span>) =&gt; <span class="hljs-built_in">void</span>, params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params &amp;&amp; params.number) params.number = +params.number + <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span> (params &amp;&amp; params.number) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
         done();
     },
-    after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params &amp;&amp; params.number) params.number = +params.number + <span class="hljs-number">2</span>;
-    }
-}
+};
 </code></pre>
-				<p>And your hooks for expecific route:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hooks = {
-    before: <span class="hljs-function">(<span class="hljs-params">done: (<span class="hljs-params">suppress?: <span class="hljs-built_in">boolean</span></span>) =&gt; <span class="hljs-built_in">void</span>, params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params) params.number = +params.number + <span class="hljs-number">2</span>;
-        done();
-    },
+				<h4 id="and-your-hooks-for-expecific-route-">And your hooks for expecific route:</h4>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> hooks: IHooks = {
     after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params) params.number = +params.number + <span class="hljs-number">2</span>
-    },
-    leave: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params) params.number = +params.number + <span class="hljs-number">2</span>
+        <span class="hljs-keyword">if</span> (params) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
     },
     already: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span>(params) params.number = +params.number + <span class="hljs-number">2</span>
-    }
-}
+        <span class="hljs-keyword">if</span> (params) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
+    },
+    before: <span class="hljs-function">(<span class="hljs-params">done: (<span class="hljs-params">suppress?: <span class="hljs-built_in">boolean</span></span>) =&gt; <span class="hljs-built_in">void</span>, params: Params</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (params) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
+        done();
+    },
+    leave: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (params) {
+            params.number = +params.number + <span class="hljs-number">2</span>;
+        }
+    },
+};
 </code></pre>
 				<h3 id="create-your-page-components">Create your page components</h3>
-				<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { h, Component, Page, State, VNode, Children, JSXElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'spiel-client'</span>;
+				<pre><code class="lang-tsx">import { Children, createNode, IPage, JSXElements, srouter, State, VNode } from &quot;../../../src&quot;;
 
-interface Show {
-    <span class="hljs-attr">value</span>: string
+interface IShow {
+    value: string;
+    onGo: () =&gt; void;
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Page1</span> <span class="hljs-title">implements</span> <span class="hljs-title">Page</span> </span>{
-    state = {
-        <span class="hljs-attr">text</span>: <span class="hljs-string">'This is a Page component'</span>
+export class Page5 implements IPage {
+    public state = {
+        text: &quot;This is a component&quot;,
+    };
+
+    public view(state: State): JSXElements {
+        return(
+            &lt;Show value={state.text} onGo={() =&gt; srouter.go(&quot;/&quot;)}&gt;
+                &lt;span&gt;And this is its child&lt;/span&gt;
+            &lt;/Show&gt;
+        );
     }
-
-    view(state: State): JSXElements {
-        <span class="hljs-keyword">return</span>(
-            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Show</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{state.text}</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>And this is its component<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">Show</span>&gt;</span></span>
-        )
-    }
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Show</span> (<span class="hljs-params">{value}: Show, children: Children</span>) </span>{
-    <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{value}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'child'</span>&gt;</span>{children}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-    )
+function Show({value, onGo}: IShow, children: Children) {
+    return (
+        &lt;div&gt;
+            &lt;span&gt;{value}&lt;/span&gt;
+            &lt;div id=&quot;child&quot;&gt;{children}&lt;/div&gt;
+            &lt;button id=&quot;go-parent&quot; onclick={() =&gt; srouter.go(&quot;/&quot;)}&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    );
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> page1 = <span class="hljs-keyword">new</span> Page1();
+export const page5 = new page5();
 </code></pre>
-				<p><strong>Note:</strong> you need to export the singleton of the class and always import <code>h</code> and <code>Component</code> to render the views</p>
-				<p>To know more about the views see more in <a href="https://github.com/picodom/picodom">picodom</a>.
-				All the picodom functionalities like <code>patch</code>, <code>h</code> etc.. are available in spiel-client</p>
+				<p><strong>Note:</strong> you need to export the singleton of the class and always import <code>createNode</code> to render the views</p>
+				<p>To know more about the views see more in <a href="https://github.com/jorgebucaran/ultradom">ultradom</a>.
+				All the ultradom functionalities like <code>patch</code>, <code>createNode</code> etc... are available in spiel-client</p>
 				<h3 id="config-your-project">Config your project</h3>
 				<p>This is a tsconfig example:</p>
 				<pre><code class="lang-typescript">{
@@ -216,7 +228,7 @@ interface Show {
         <span class="hljs-string">"outDir"</span>: <span class="hljs-string">"./lib"</span>,
         <span class="hljs-string">"rootDir"</span>: <span class="hljs-string">"."</span>,
         <span class="hljs-string">"jsx"</span>: <span class="hljs-string">"react"</span>,
-        <span class="hljs-string">"jsxFactory"</span>: <span class="hljs-string">"h"</span>
+        <span class="hljs-string">"jsxFactory"</span>: <span class="hljs-string">"createNode"</span>
     },
     <span class="hljs-string">"include"</span>: [
         <span class="hljs-string">"./src"</span>,
@@ -227,62 +239,63 @@ interface Show {
     ]
 }
 </code></pre>
-				<p>Remember always to put <code>h</code> in the <code>jsxFactory</code> option.</p>
+				<p>Remember always to put <code>createNode</code> in the <code>jsxFactory</code> option.</p>
 				<h3 id="test-your-code">Test your code</h3>
 				<p>Create your mocks:</p>
-				<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { h, Component, Page, State, VNode, Children,    JSXElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'spiel-client'</span>;
+				<pre><code class="lang-typescript">import { Children, createNode, IPage, JSXElements, State, VNode } from "../../src";
 
-interface Show {
-    <span class="hljs-attr">value</span>: string
+interface IShow {
+    value: string;
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComponentTest</span> <span class="hljs-title">implements</span> <span class="hljs-title">Page</span> </span>{
-    state = {
-        <span class="hljs-attr">text</span>: <span class="hljs-string">'This is a component'</span>
+export class ComponentTest implements IPage {
+    public state = {
+        text: "This is a component",
+    };
+
+    public view(state: State): JSXElements {
+        return(
+            &lt;Show value={state.text}&gt;
+                &lt;span&gt;And this is its child&lt;/span&gt;
+            &lt;/Show&gt;
+        );
     }
 
-    view(state: State): JSXElements {
-        <span class="hljs-keyword">return</span>(
-            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Show</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{state.text}</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>And this is its child<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">Show</span>&gt;</span></span>
-        )
-    }
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Show</span> (<span class="hljs-params">{value}: Show, children: Children</span>) </span>{
-    <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{value}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'child'</span>&gt;</span>{children}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-    )
+function Show({value}: IShow, children: Children) {
+    return (
+        &lt;div&gt;
+            &lt;span&gt;{value}&lt;/span&gt;
+            &lt;div id="child"&gt;{children}&lt;/div&gt;
+        &lt;/div&gt;
+    );
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> componentTest = <span class="hljs-keyword">new</span> ComponentTest();
+export const componentTest = new ComponentTest();
 </code></pre>
 				<p>and your file spec:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { h, VNode } <span class="hljs-keyword">from</span> <span class="hljs-string">"spiel-client"</span>;
-<span class="hljs-keyword">import</span> { expect, assert } <span class="hljs-keyword">from</span> <span class="hljs-string">"chai"</span>;
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { assert, expect } <span class="hljs-keyword">from</span> <span class="hljs-string">"chai"</span>;
+<span class="hljs-keyword">import</span> { createNode <span class="hljs-keyword">as</span> u, patch, VNode} <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src"</span>;
 
-<span class="hljs-keyword">import</span> {componentTest} <span class="hljs-keyword">from</span> <span class="hljs-string">'./mocks'</span>;
+<span class="hljs-keyword">import</span> {componentTest} <span class="hljs-keyword">from</span> <span class="hljs-string">"./mocks"</span>;
 
-describe(<span class="hljs-string">'Component'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-keyword">let</span> nodes: VNode&lt;<span class="hljs-built_in">any</span>&gt;
-    before(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span> {
-        nodes = h(componentTest.view, componentTest.state);
+describe(<span class="hljs-string">"Component"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">let</span> nodes: VNode&lt;<span class="hljs-built_in">any</span>&gt;;
+    before(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        nodes = u(componentTest.view, componentTest.state);
     });
-    it(<span class="hljs-string">'has to be created'</span>, <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span> {
-        <span class="hljs-keyword">const</span> text: <span class="hljs-built_in">any</span> = nodes.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.type === <span class="hljs-string">'span'</span>);
-        expect(text.children[<span class="hljs-number">0</span>]).has.to.be.equal(<span class="hljs-string">'This is a component'</span>)
+    it(<span class="hljs-string">"has to be created"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">const</span> text: <span class="hljs-built_in">any</span> = nodes.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.nodeName === <span class="hljs-string">"span"</span>);
+        expect(text.children[<span class="hljs-number">0</span>]).has.to.be.equal(<span class="hljs-string">"This is a component"</span>);
     });
 
-    it(<span class="hljs-string">'has to exist its children'</span>, <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span> {
-        <span class="hljs-keyword">const</span> child: <span class="hljs-built_in">any</span> = nodes.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.type === <span class="hljs-string">'div'</span>);     
-        <span class="hljs-keyword">const</span> text: <span class="hljs-built_in">any</span> = child.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.type === <span class="hljs-string">'span'</span>);
+    it(<span class="hljs-string">"has to exist its children"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">const</span> child: <span class="hljs-built_in">any</span> = nodes.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.nodeName === <span class="hljs-string">"div"</span>);
+        <span class="hljs-keyword">const</span> text: <span class="hljs-built_in">any</span> = child.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.nodeName === <span class="hljs-string">"span"</span>);
         expect(text.children[<span class="hljs-number">0</span>]).has.to.be.equal(<span class="hljs-string">"And this is its child"</span>);
     });
-})
+});
 </code></pre>
 				<h2 id="make-compatible-with-es5-browsers">Make compatible with ES5 browsers</h2>
 				<p>tsconfig.json:</p>
@@ -298,7 +311,7 @@ describe(<span class="hljs-string">'Component'</span>, <span class="hljs-functio
         <span class="hljs-attr">"outDir"</span>: <span class="hljs-string">"./lib"</span>,
         <span class="hljs-attr">"rootDir"</span>: <span class="hljs-string">"."</span>,
         <span class="hljs-attr">"jsx"</span>: <span class="hljs-string">"react"</span>,
-        <span class="hljs-attr">"jsxFactory"</span>: <span class="hljs-string">"h"</span>
+        <span class="hljs-attr">"jsxFactory"</span>: <span class="hljs-string">"createNode"</span>
     },
     <span class="hljs-attr">"include"</span>: [
         <span class="hljs-string">"./src"</span>,
@@ -309,9 +322,9 @@ describe(<span class="hljs-string">'Component'</span>, <span class="hljs-functio
     ]
 }
 </code></pre>
-				<p>In your code: </p>
+				<p>In your code:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> <span class="hljs-string">'es6-shim'</span>; <span class="hljs-comment">// or every polyfill which you need</span>
-<span class="hljs-keyword">import</span> { srouter, ConfigRouters } <span class="hljs-keyword">from</span> <span class="hljs-string">'spiel-client'</span>;
+<span class="hljs-keyword">import</span> { srouter, IConfigRouters } <span class="hljs-keyword">from</span> <span class="hljs-string">'spiel-client'</span>;
 </code></pre>
 				<h2 id="run-spiel-client-tests">Run Spiel Client tests</h2>
 				<p><code>npm test</code></p>
@@ -333,9 +346,6 @@ describe(<span class="hljs-string">'Component'</span>, <span class="hljs-functio
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_render_.html">"render"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_router_.html">"router"</a>

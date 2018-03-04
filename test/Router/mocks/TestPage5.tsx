@@ -1,32 +1,32 @@
-import { h, Component, Page, State, VNode, Children, JSXElements, srouter } from '../../../src';
+import { Children, createNode, IPage, JSXElements, srouter, State, VNode } from "../../../src";
 
-interface Show {
+interface IShow {
     value: string;
-    onGo: Function;
+    onGo: () => void;
 }
 
-export class TestPage5 implements Page {
-    state = {
-        text: 'This is a component'
-    }
+export class TestPage5 implements IPage {
+    public state = {
+        text: "This is a component",
+    };
 
-    view(state: State): JSXElements {
+    public view(state: State): JSXElements {
         return(
-            <Show value={state.text} onGo={()=> srouter.go('/')}>
+            <Show value={state.text} onGo={() => srouter.go("/")}>
                 <span>And this is its child</span>
             </Show>
-        )
+        );
     }
 }
 
-function Show ({value, onGo}: Show, children: Children) {
+function Show({value, onGo}: IShow, children: Children) {
     return (
         <div>
             <span>{value}</span>
-            <div id='child'>{children}</div>
-            <button id="go-parent" onclick={() => srouter.go('/')}></button>
+            <div id="child">{children}</div>
+            <button id="go-parent" onclick={() => srouter.go("/")}></button>
         </div>
-    )
+    );
 }
 
 export const testPage5 = new TestPage5();

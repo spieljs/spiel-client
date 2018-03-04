@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GenericHooks | Spiel Client</title>
+	<title>IGenericHooks | Spiel Client</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_helpers_interfaces_.html">&quot;helpers/interfaces&quot;</a>
 				</li>
 				<li>
-					<a href="_helpers_interfaces_.generichooks.html">GenericHooks</a>
+					<a href="_helpers_interfaces_.igenerichooks.html">IGenericHooks</a>
 				</li>
 			</ul>
-			<h1>Interface GenericHooks</h1>
+			<h1>Interface IGenericHooks</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,8 @@
 				<div class="tsd-comment tsd-typography">
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
-						<dd><p><a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Generic Hooks example</a></p>
+						<dd><p><a href='https://github.com/spieljs/spiel-client/tree/picodom-test#set-your-generic-hooks-for-all-the-routes'>
+							Generic Hooks example</a></p>
 						</dd>
 					</dl>
 				</div>
@@ -82,7 +83,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GenericHooks</span>
+						<span class="target">IGenericHooks</span>
 					</li>
 				</ul>
 			</section>
@@ -93,8 +94,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_helpers_interfaces_.generichooks.html#after" class="tsd-kind-icon">after</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_helpers_interfaces_.generichooks.html#before" class="tsd-kind-icon">before</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_helpers_interfaces_.igenerichooks.html#after" class="tsd-kind-icon">after</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_helpers_interfaces_.igenerichooks.html#before" class="tsd-kind-icon">before</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,20 +113,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/helpers/interfaces.ts#L35">helpers/interfaces.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L37">helpers/interfaces.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>After resolving</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example:</dt>
+									<dd><p>/user:id =&gt; params.id</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <a href="../modules/_helpers_interfaces_.html#params" class="tsd-signature-type">Params</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Params of the path, example: /user:id =&gt; params.id</p>
+										<p>Params of the path</p>
 									</div>
 								</li>
 							</ul>
@@ -143,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/helpers/interfaces.ts#L31">helpers/interfaces.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L32">helpers/interfaces.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,9 +212,6 @@
 						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_render_.html">"render"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="../modules/_router_.html">"router"</a>
 					</li>
 				</ul>
@@ -216,55 +219,43 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.configrouters.html" class="tsd-kind-icon">Config<wbr>Routers</a>
+						<a href="_helpers_interfaces_.iconfigrouters.html" class="tsd-kind-icon">IConfig<wbr>Routers</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.generichooks.html" class="tsd-kind-icon">Generic<wbr>Hooks</a>
+						<a href="_helpers_interfaces_.igenerichooks.html" class="tsd-kind-icon">IGeneric<wbr>Hooks</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_helpers_interfaces_.generichooks.html#after" class="tsd-kind-icon">after</a>
+								<a href="_helpers_interfaces_.igenerichooks.html#after" class="tsd-kind-icon">after</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_helpers_interfaces_.generichooks.html#before" class="tsd-kind-icon">before</a>
+								<a href="_helpers_interfaces_.igenerichooks.html#before" class="tsd-kind-icon">before</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.hooks.html" class="tsd-kind-icon">Hooks</a>
+						<a href="_helpers_interfaces_.ihooks.html" class="tsd-kind-icon">IHooks</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.page.html" class="tsd-kind-icon">Page</a>
+						<a href="_helpers_interfaces_.ipage.html" class="tsd-kind-icon">IPage</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.routers.html" class="tsd-kind-icon">Routers</a>
+						<a href="_helpers_interfaces_.irouters.html" class="tsd-kind-icon">IRouters</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#children" class="tsd-kind-icon">Children</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_helpers_interfaces_.iroutershandler.html" class="tsd-kind-icon">IRouters<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#handler" class="tsd-kind-icon">Handler</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#jsxelements" class="tsd-kind-icon">JSXElements</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#keys" class="tsd-kind-icon">Keys</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#params" class="tsd-kind-icon">Params</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#routershandler" class="tsd-kind-icon">Routers<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#state" class="tsd-kind-icon">State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#view" class="tsd-kind-icon">View</a>
 					</li>
 				</ul>
 			</nav>

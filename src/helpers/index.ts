@@ -1,2 +1,1 @@
-export {ConfigRouters, Routers, State, View, Page, Children,
-    JSXElements, Hooks, GenericHooks, Params, Handler, RoutersHandler} from './interfaces';
+export {IConfigRouters, IRouters, IPage, IHooks, IGenericHooks, Params, Handler, IRoutersHandler} from "./interfaces";

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Page | Spiel Client</title>
+	<title>IRouters | Spiel Client</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,30 +59,21 @@
 					<a href="../modules/_helpers_interfaces_.html">&quot;helpers/interfaces&quot;</a>
 				</li>
 				<li>
-					<a href="_helpers_interfaces_.page.html">Page</a>
+					<a href="_helpers_interfaces_.irouters.html">IRouters</a>
 				</li>
 			</ul>
-			<h1>Interface Page</h1>
+			<h1>Interface IRouters</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>see</dt>
-						<dd><p><a href='https://github.com/spieljs/spiel-client#create-your-page-components'>Page example</a></p>
-						</dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Page</span>
+						<span class="target">IRouters</span>
 					</li>
 				</ul>
 			</section>
@@ -93,8 +84,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.page.html#state" class="tsd-kind-icon">state</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.page.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#alias" class="tsd-kind-icon">alias</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#defaultprops" class="tsd-kind-icon">default<wbr>Props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#hooks" class="tsd-kind-icon">hooks</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#page" class="tsd-kind-icon">page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#path" class="tsd-kind-icon">path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_interfaces_.irouters.html#routers" class="tsd-kind-icon">routers</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,33 +98,113 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="state" class="tsd-anchor"></a>
-					<h3>state</h3>
-					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../modules/_helpers_interfaces_.html#state" class="tsd-signature-type">State</a></div>
+					<a name="alias" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> alias</h3>
+					<div class="tsd-signature tsd-kind-icon">alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/helpers/interfaces.ts#L18">helpers/interfaces.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L74">helpers/interfaces.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>State object with all the properties of the page component</p>
+							<p>Alias route to allow generate an url</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>since</dt>
+							<dd><p>0.3.3</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="defaultprops" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default<wbr>Props</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L84">helpers/interfaces.ts:84</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>It assigns default props state for this route</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
-					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <a href="../modules/_helpers_interfaces_.html#view" class="tsd-signature-type">View</a></div>
+					<a name="hooks" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hooks</h3>
+					<div class="tsd-signature tsd-kind-icon">hooks<span class="tsd-signature-symbol">:</span> <a href="_helpers_interfaces_.ihooks.html" class="tsd-signature-type">IHooks</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/helpers/interfaces.ts#L20">helpers/interfaces.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L78">helpers/interfaces.ts:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The JSX view template of the page component</p>
+							<p>It assigns hooks for this route</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="_helpers_interfaces_.hooks.html">Hooks</a></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="page" class="tsd-anchor"></a>
+					<h3>page</h3>
+					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <a href="_helpers_interfaces_.ipage.html" class="tsd-signature-type">IPage</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L70">helpers/interfaces.ts:70</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Singleton Page component class</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="_helpers_interfaces_.page.html">Page</a></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="path" class="tsd-anchor"></a>
+					<h3>path</h3>
+					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L66">helpers/interfaces.ts:66</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Page component path</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="routers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> routers</h3>
+					<div class="tsd-signature tsd-kind-icon">routers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/helpers/interfaces.ts#L82">helpers/interfaces.ts:82</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>It adds page childreen</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="_helpers_interfaces_.routers.html">Routers</a></p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -150,9 +225,6 @@
 						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_render_.html">"render"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="../modules/_router_.html">"router"</a>
 					</li>
 				</ul>
@@ -160,55 +232,55 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.configrouters.html" class="tsd-kind-icon">Config<wbr>Routers</a>
+						<a href="_helpers_interfaces_.iconfigrouters.html" class="tsd-kind-icon">IConfig<wbr>Routers</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.generichooks.html" class="tsd-kind-icon">Generic<wbr>Hooks</a>
+						<a href="_helpers_interfaces_.igenerichooks.html" class="tsd-kind-icon">IGeneric<wbr>Hooks</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.hooks.html" class="tsd-kind-icon">Hooks</a>
+						<a href="_helpers_interfaces_.ihooks.html" class="tsd-kind-icon">IHooks</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_helpers_interfaces_.ipage.html" class="tsd-kind-icon">IPage</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.page.html" class="tsd-kind-icon">Page</a>
+						<a href="_helpers_interfaces_.irouters.html" class="tsd-kind-icon">IRouters</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_helpers_interfaces_.page.html#state" class="tsd-kind-icon">state</a>
+								<a href="_helpers_interfaces_.irouters.html#alias" class="tsd-kind-icon">alias</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_helpers_interfaces_.page.html#view" class="tsd-kind-icon">view</a>
+								<a href="_helpers_interfaces_.irouters.html#defaultprops" class="tsd-kind-icon">default<wbr>Props</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_interfaces_.irouters.html#hooks" class="tsd-kind-icon">hooks</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_interfaces_.irouters.html#page" class="tsd-kind-icon">page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_interfaces_.irouters.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_interfaces_.irouters.html#routers" class="tsd-kind-icon">routers</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_helpers_interfaces_.routers.html" class="tsd-kind-icon">Routers</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#children" class="tsd-kind-icon">Children</a>
+						<a href="_helpers_interfaces_.iroutershandler.html" class="tsd-kind-icon">IRouters<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#handler" class="tsd-kind-icon">Handler</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#jsxelements" class="tsd-kind-icon">JSXElements</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#keys" class="tsd-kind-icon">Keys</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_helpers_interfaces_.html#params" class="tsd-kind-icon">Params</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#routershandler" class="tsd-kind-icon">Routers<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#state" class="tsd-kind-icon">State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_helpers_interfaces_.html#view" class="tsd-kind-icon">View</a>
 					</li>
 				</ul>
 			</nav>

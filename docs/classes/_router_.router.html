@@ -79,8 +79,6 @@
 						<dt>see</dt>
 						<dd><p><a href='https://github.com/krasimir/navigo' target="_blank">Navigo</a></p>
 						</dd>
-						<dt>preferred</dt>
-						<dd></dd>
 					</dl>
 				</div>
 			</section>
@@ -101,7 +99,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#configrouters" class="tsd-kind-icon">config<wbr>Routers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#defaultprops" class="tsd-kind-icon">default<wbr>Props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#element" class="tsd-kind-icon">element</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#hash" class="tsd-kind-icon">hash</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#root" class="tsd-kind-icon">root</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_router_.router.html#router" class="tsd-kind-icon">router</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#usehash" class="tsd-kind-icon">use<wbr>Hash</a></li>
 							</ul>
@@ -112,21 +112,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#build" class="tsd-kind-icon">build</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#checkdefault" class="tsd-kind-icon">check<wbr>Default</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#checknotfound" class="tsd-kind-icon">check<wbr>Not<wbr>Found</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#destroy" class="tsd-kind-icon">destroy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#disableifapinotavailable" class="tsd-kind-icon">disable<wbr>IfAPINot<wbr>Available</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#generate" class="tsd-kind-icon">generate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#getlinkpath" class="tsd-kind-icon">get<wbr>Link<wbr>Path</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#createrootelement" class="tsd-kind-icon">create<wbr>Root<wbr>Element</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#go" class="tsd-kind-icon">go</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#historyapiupdatemethod" class="tsd-kind-icon">historyAPIUpdate<wbr>Method</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#lastrouteresolved" class="tsd-kind-icon">last<wbr>Route<wbr>Resolved</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#link" class="tsd-kind-icon">link</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#ondefault" class="tsd-kind-icon">on<wbr>Default</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#onmultiple" class="tsd-kind-icon">on<wbr>Multiple</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#pause" class="tsd-kind-icon">pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#resolve" class="tsd-kind-icon">resolve</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#resume" class="tsd-kind-icon">resume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_router_.router.html#setpatch" class="tsd-kind-icon">set<wbr>Patch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#setrouters" class="tsd-kind-icon">set<wbr>Routers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_router_.router.html#updatepagelinks" class="tsd-kind-icon">update<wbr>Page<wbr>Links</a></li>
@@ -140,10 +128,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="configrouters" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> config<wbr>Routers</h3>
-					<div class="tsd-signature tsd-kind-icon">config<wbr>Routers<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_helpers_interfaces_.configrouters.html" class="tsd-signature-type">ConfigRouters</a></div>
+					<div class="tsd-signature tsd-kind-icon">config<wbr>Routers<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_helpers_interfaces_.iconfigrouters.html" class="tsd-signature-type">IConfigRouters</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L20">router.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L19">router.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -153,7 +141,17 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L19">router.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L18">router.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="element" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> element</h3>
+					<div class="tsd-signature tsd-kind-icon">element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Element</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L23">router.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +161,17 @@
 					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L22">router.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L21">router.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="root" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> root</h3>
+					<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L22">router.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Navigo</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L18">router.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L17">router.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">use<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L21">router.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L20">router.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,19 +216,19 @@
 					<a name="build" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> build</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span>configRouters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_helpers_interfaces_.routers.html" class="tsd-signature-type">Routers</a><span class="tsd-signature-symbol">&gt;</span>, parentPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span>configRouters<span class="tsd-signature-symbol">: </span><a href="../interfaces/_helpers_interfaces_.irouters.html" class="tsd-signature-type">IRouters</a><span class="tsd-signature-symbol">[]</span>, parentPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L188">router.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L92">router.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>configRouters: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_helpers_interfaces_.routers.html" class="tsd-signature-type">Routers</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>configRouters: <a href="../interfaces/_helpers_interfaces_.irouters.html" class="tsd-signature-type">IRouters</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parentPath: <span class="tsd-signature-type">string</span></h5>
@@ -240,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L230">router.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L137">router.ts:137</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -257,147 +265,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L217">router.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L125">router.ts:125</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="destroy" class="tsd-anchor"></a>
-					<h3>destroy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="createrootelement" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Root<wbr>Element</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Root<wbr>Element<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L56">router.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L79">router.ts:79</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It Removes all the routes</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="disableifapinotavailable" class="tsd-anchor"></a>
-					<h3>disable<wbr>IfAPINot<wbr>Available</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">disable<wbr>IfAPINot<wbr>Available<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L63">router.ts:63</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It disables the route if History API is not supported</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="generate" class="tsd-anchor"></a>
-					<h3>generate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">generate<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><a href="../modules/_helpers_interfaces_.html#params" class="tsd-signature-type">Params</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L74">router.ts:74</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It generates an url based in alias route</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href='https://github.com/spieljs/spiel-client#first-config-you-routes'>Generate links</a></p>
-									</dd>
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>path: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Path of the route to genarate</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <a href="../modules/_helpers_interfaces_.html#params" class="tsd-signature-type">Params</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Params included in the url to generate</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>Url</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getlinkpath" class="tsd-anchor"></a>
-					<h3>get<wbr>Link<wbr>Path</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Link<wbr>Path<span class="tsd-signature-symbol">(</span>link<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLAnchorElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L83">router.ts:83</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It gets the link of the anchor element</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.3.3</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>link: <span class="tsd-signature-type">HTMLAnchorElement</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Anchor link which contains the data-navigo attribute</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>Path url</p>
 						</li>
 					</ul>
 				</section>
@@ -411,13 +299,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L48">router.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L56">router.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It goes to the path indicated</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>router.go(&quot;<a href="http://localhost/example">http://localhost/example</a>&quot;, true)</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -430,323 +323,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> absolute: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>True allow to pass absolute path, example: router.go(&quot;<a href="http://localhost/example">http://localhost/example</a>&quot;, true)</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="historyapiupdatemethod" class="tsd-anchor"></a>
-					<h3>historyAPIUpdate<wbr>Method</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">historyAPIUpdate<wbr>Method<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L184">router.ts:184</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>By default the router uses History.pushState and changes that to History.replaceState
-										if the router is paused. If you need to always use pushState even
-										if the router is paused use this method
-									like router.historyAPIUpdateMethod(&#39;pushState&#39;) after calling pause</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method" target="_blank">pushState method</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method" target="_blank">replaceState method</a></p>
-									</dd>
-									<dt>since</dt>
-									<dd><p>0.3.3</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> method: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Method history could be pushState or replaceState</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="lastrouteresolved" class="tsd-anchor"></a>
-					<h3>last<wbr>Route<wbr>Resolved</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">last<wbr>Route<wbr>Resolved<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L154">router.ts:154</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-							<p>Returns an object with the format of { url: <string>, query: <string> } matching the latest resolved route</p>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li class="tsd-parameter">
-									<h5>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="link" class="tsd-anchor"></a>
-					<h3>link</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">link<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L163">router.ts:163</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>path: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The path of the route</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The full url of the path</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="off" class="tsd-anchor"></a>
-					<h3>off</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L92">router.ts:92</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It disables a router, example: router.off(&#39;/example&#39;, handle)</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.3.3</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>path: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Path of the route to disable</p>
-									</div>
-								</li>
-								<li>
-									<h5>handler: <a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Handler of the route to disable</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="on" class="tsd-anchor"></a>
-					<h3>on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a>, hooks<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_helpers_interfaces_.hooks.html" class="tsd-signature-type">Hooks</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L110">router.ts:110</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It adds new route</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>path: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Path of the route to add</p>
-									</div>
-								</li>
-								<li>
-									<h5>handler: <a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Handler of the route to add</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> hooks: <a href="../interfaces/_helpers_interfaces_.hooks.html" class="tsd-signature-type">Hooks</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Hooks of execution when access to the route</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="ondefault" class="tsd-anchor"></a>
-					<h3>on<wbr>Default</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Default<span class="tsd-signature-symbol">(</span>handler<span class="tsd-signature-symbol">: </span><a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a>, hooks<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_helpers_interfaces_.hooks.html" class="tsd-signature-type">Hooks</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L119">router.ts:119</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It adds default route</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>handler: <a href="../modules/_helpers_interfaces_.html#handler" class="tsd-signature-type">Handler</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Handler of the default route to add</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> hooks: <a href="../interfaces/_helpers_interfaces_.hooks.html" class="tsd-signature-type">Hooks</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Hooks of execution when access to the default route</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="onmultiple" class="tsd-anchor"></a>
-					<h3>on<wbr>Multiple</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Multiple<span class="tsd-signature-symbol">(</span>routers<span class="tsd-signature-symbol">: </span><a href="../modules/_helpers_interfaces_.html#routershandler" class="tsd-signature-type">RoutersHandler</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L100">router.ts:100</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It creates multiple routes</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.3.3</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>routers: <a href="../modules/_helpers_interfaces_.html#routershandler" class="tsd-signature-type">RoutersHandler</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>It declares all the routers to create</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="pause" class="tsd-anchor"></a>
-					<h3>pause</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">pause<span class="tsd-signature-symbol">(</span>change<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L127">router.ts:127</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It gives you a chance to change the route without resolving. Make sure that you call</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> change: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>false value returns to the previous working state</p>
+										<p>True allow to pass absolute path</p>
 									</div>
 								</li>
 							</ul>
@@ -764,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L135">router.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L64">router.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -787,53 +364,26 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="resume" class="tsd-anchor"></a>
-					<h3>resume</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">resume<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L146">router.ts:146</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>It returns to the previous working state. [resum() === pause(false)]</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>since</dt>
-									<dd><p>0.2.1</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="setpatch" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Patch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Patch<span class="tsd-signature-symbol">(</span>route<span class="tsd-signature-symbol">: </span><a href="../interfaces/_helpers_interfaces_.routers.html" class="tsd-signature-type">Routers</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Patch<span class="tsd-signature-symbol">(</span>route<span class="tsd-signature-symbol">: </span><a href="../interfaces/_helpers_interfaces_.irouters.html" class="tsd-signature-type">IRouters</a>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L207">router.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L115">router.ts:115</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>route: <a href="../interfaces/_helpers_interfaces_.routers.html" class="tsd-signature-type">Routers</a></h5>
+									<h5>route: <a href="../interfaces/_helpers_interfaces_.irouters.html" class="tsd-signature-type">IRouters</a></h5>
 								</li>
 								<li>
-									<h5>params: <span class="tsd-signature-type">Object</span></h5>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
 								</li>
 								<li>
 									<h5>query: <span class="tsd-signature-type">string</span></h5>
@@ -847,13 +397,13 @@
 					<a name="setrouters" class="tsd-anchor"></a>
 					<h3>set<wbr>Routers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Routers<span class="tsd-signature-symbol">(</span>configRouters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_helpers_interfaces_.configrouters.html" class="tsd-signature-type">ConfigRouters</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_router_.router.html" class="tsd-signature-type">Router</a></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Routers<span class="tsd-signature-symbol">(</span>configRouters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_helpers_interfaces_.iconfigrouters.html" class="tsd-signature-type">IConfigRouters</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_router_.router.html" class="tsd-signature-type">Router</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L30">router.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L31">router.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -869,7 +419,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> configRouters: <a href="../interfaces/_helpers_interfaces_.configrouters.html" class="tsd-signature-type">ConfigRouters</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> configRouters: <a href="../interfaces/_helpers_interfaces_.iconfigrouters.html" class="tsd-signature-type">IConfigRouters</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>router settings</p>
 									</div>
@@ -890,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/5261cee/src/router.ts#L171">router.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/spieljs/spiel-client/blob/28915fd/src/router.ts#L75">router.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -924,9 +474,6 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">"index"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_render_.html">"render"</a>
-					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_router_.html">"router"</a>
 					</li>
@@ -946,7 +493,13 @@
 								<a href="_router_.router.html#defaultprops" class="tsd-kind-icon">default<wbr>Props</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_router_.router.html#element" class="tsd-kind-icon">element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_router_.router.html#hash" class="tsd-kind-icon">hash</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_router_.router.html#root" class="tsd-kind-icon">root</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_router_.router.html#router" class="tsd-kind-icon">router</a>
@@ -963,50 +516,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_router_.router.html#checknotfound" class="tsd-kind-icon">check<wbr>Not<wbr>Found</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#destroy" class="tsd-kind-icon">destroy</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#disableifapinotavailable" class="tsd-kind-icon">disable<wbr>IfAPINot<wbr>Available</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#generate" class="tsd-kind-icon">generate</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#getlinkpath" class="tsd-kind-icon">get<wbr>Link<wbr>Path</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_router_.router.html#createrootelement" class="tsd-kind-icon">create<wbr>Root<wbr>Element</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_router_.router.html#go" class="tsd-kind-icon">go</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#historyapiupdatemethod" class="tsd-kind-icon">historyAPIUpdate<wbr>Method</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#lastrouteresolved" class="tsd-kind-icon">last<wbr>Route<wbr>Resolved</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#link" class="tsd-kind-icon">link</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#off" class="tsd-kind-icon">off</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#on" class="tsd-kind-icon">on</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#ondefault" class="tsd-kind-icon">on<wbr>Default</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#onmultiple" class="tsd-kind-icon">on<wbr>Multiple</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#pause" class="tsd-kind-icon">pause</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_router_.router.html#resolve" class="tsd-kind-icon">resolve</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_router_.router.html#resume" class="tsd-kind-icon">resume</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_router_.router.html#setpatch" class="tsd-kind-icon">set<wbr>Patch</a>

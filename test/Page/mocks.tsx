@@ -1,22 +1,22 @@
-import {h, Component, render, State, Page, VNode} from '../../src';
+import { createNode, IPage, render, State, VNode} from "../../src";
 
-export class PageTest implements Page {
-    state: State = {
-        title: "Hello"
-    }
+export class PageTest implements IPage {
+    public state: State = {
+        title: "Hello",
+    };
 
-    view(state: State): VNode<any> {
+    public view(state: State): VNode<any> {
         const changeTitle = () => {
-            state.title = 'Hello World';
-            render(pageTest.view, state);
-        }
+            state.title = "Hello World";
+            document.body.appendChild(render(pageTest.view, state, document.getElementById("app")));
+        };
 
         return(
             <div>
                 <h1>{state.title}</h1>
                 <button onclick={() => changeTitle()}></button>
             </div>
-        )
+        );
     }
 }
 
