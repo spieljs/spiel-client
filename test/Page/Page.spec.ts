@@ -1,11 +1,11 @@
-import { createNode as u, VNode, patch } from "../../src"
-import { expect, assert } from "chai";
+import { assert, expect } from "chai";
+import { createNode as u, patch, VNode} from "../../src";
 
-import {pageTest} from './mocks';
+import {pageTest} from "./mocks";
 
 describe("Page", () => {
     let nodes: VNode<any>;
-    before(()=> {
+    before(() => {
         const node = u("div", {});
         const elm = document.createElement("div");
         elm.setAttribute("id", "app");
@@ -14,16 +14,16 @@ describe("Page", () => {
         nodes = u(pageTest.view, pageTest.state);
     });
 
-    it("has to be created", ()=> {
-        const title: any = nodes.children.find((node: any) => node.nodeName === 'h1');
+    it("has to be created", () => {
+        const title: any = nodes.children.find((node: any) => node.nodeName === "h1");
         expect(title.children[0]).has.to.be.equal("Hello");
     });
 
-    it("has to change the title", ()=> {
-        const button: any = nodes.children.find((node: any) => node.nodeName === 'button');
+    it("has to change the title", () => {
+        const button: any = nodes.children.find((node: any) => node.nodeName === "button");
         button.attributes.onclick();
         nodes = u(pageTest.view, pageTest.state);
-        const title: any = nodes.children.find((node: any) => node.nodeName === 'h1');
+        const title: any = nodes.children.find((node: any) => node.nodeName === "h1");
         expect(title.children[0]).has.to.be.equal("Hello World");
-    })
-})
+    });
+});

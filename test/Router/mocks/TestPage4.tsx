@@ -1,24 +1,24 @@
-import {createNode, Component, render, State, JSXElements} from '../../../src';
+import {createNode, JSXElements, render, State} from "../../../src";
 
 export class TestPage4 {
-    state = {
-        title: 'Hello brother'
-    }
+    public state = {
+        title: "Hello brother",
+    };
 
-    view(state: State): JSXElements {
+    public view(state: State): JSXElements {
         return (
             <div>
                 <h1>{state.title}</h1>
                 <h2>{state.defaultProps}</h2>
                 <button
                     onclick ={() => {
-                        state.title = 'Yes brother';
-                        render(testPage4.view, state)
+                        state.title = "Yes brother";
+                        render(testPage4.view, state);
                     }}
                 >Change Title</button>
-                <a href='/home' data-navigo>go to root</a>
+                <a href="/home" data-navigo>go to root</a>
             </div>
-        )
+        );
     }
 }
 

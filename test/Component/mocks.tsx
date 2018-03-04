@@ -1,31 +1,31 @@
-import { createNode, Component, Page, State, VNode, Children, JSXElements } from '../../src';
+import { Children, createNode, IPage, JSXElements, State, VNode } from "../../src";
 
-interface Show {
-    value: string
+interface IShow {
+    value: string;
 }
 
-export class ComponentTest implements Page {
-    state = {
-        text: 'This is a component'
-    }
+export class ComponentTest implements IPage {
+    public state = {
+        text: "This is a component",
+    };
 
-    view(state: State): JSXElements {
+    public view(state: State): JSXElements {
         return(
             <Show value={state.text}>
                 <span>And this is its child</span>
             </Show>
-        )
+        );
     }
 
 }
 
-function Show ({value}: Show, children: Children) {
+function Show({value}: IShow, children: Children) {
     return (
         <div>
             <span>{value}</span>
-            <div id='child'>{children}</div>
+            <div id="child">{children}</div>
         </div>
-    )
+    );
 }
 
 export const componentTest = new ComponentTest();

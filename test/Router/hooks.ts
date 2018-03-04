@@ -1,29 +1,39 @@
-import {Hooks, Params} from '../../src';
+import { IGenericHooks, IHooks, Params} from "../../src";
 
-type hooks = Hooks;
-
-export const hooks = {
-    before: (done: (suppress?: boolean) => void, params: Params) => {
-        if(params) params.number = +params.number + 2;
-        done();
-    },
+export const hooks: IHooks = {
     after: (params: Params) => {
-        if(params) params.number = +params.number + 2
-    },
-    leave: (params: Params) => {
-        if(params) params.number = +params.number + 2
+        if (params) {
+            params.number = +params.number + 2;
+        }
     },
     already: (params: Params) => {
-        if(params) params.number = +params.number + 2
-    }
-}
-
-export const genericHooks = {
+        if (params) {
+            params.number = +params.number + 2;
+        }
+    },
     before: (done: (suppress?: boolean) => void, params: Params) => {
-        if(params && params.number) params.number = +params.number + 2;
+        if (params) {
+            params.number = +params.number + 2;
+        }
         done();
     },
+    leave: (params: Params) => {
+        if (params) {
+            params.number = +params.number + 2;
+        }
+    },
+};
+
+export const genericHooks: IGenericHooks = {
     after: (params: Params) => {
-        if(params && params.number) params.number = +params.number + 2;
-    }
-}
+        if (params && params.number) {
+            params.number = +params.number + 2;
+        }
+    },
+    before: (done: (suppress?: boolean) => void, params: Params) => {
+        if (params && params.number) {
+            params.number = +params.number + 2;
+        }
+        done();
+    },
+};

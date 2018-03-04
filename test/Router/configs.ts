@@ -1,56 +1,55 @@
-import {ConfigRouters} from '../../src';
+import {IConfigRouters} from "../../src";
 
-import {genericHooks, hooks} from './hooks';
+import {genericHooks, hooks} from "./hooks";
 
-import { testPage1 } from './mocks/TestPage1';
-import { testPage4 } from './mocks/TestPage4';
-import { testPage5 } from './mocks/TestPage5';
-import { testPage2 } from './mocks/TestPage2';
-import { testPage3 } from './mocks/TestPage3';
-import { notFound } from './mocks/NotFoundPath';
+import { notFound } from "./mocks/NotFoundPath";
+import { testPage1 } from "./mocks/TestPage1";
+import { testPage2 } from "./mocks/TestPage2";
+import { testPage3 } from "./mocks/TestPage3";
+import { testPage4 } from "./mocks/TestPage4";
+import { testPage5 } from "./mocks/TestPage5";
 
-
-export const configDefault: ConfigRouters = {
+export const configDefault: IConfigRouters = {
     routers: [{
-        path: '/',
         page: testPage1,
+        path: "/",
         routers: [{
-            path: '/child',
-            page: testPage5
-        }]
-    }]
+            page: testPage5,
+            path: "/child",
+        }],
+    }],
 };
 
-export const configSettings: ConfigRouters = {
-    rootPath: 'http://localhost:9876/',
-    default: '/home',
-    useHash: true,
-    genericHooks: genericHooks,
-    defaultProps: 'default',
+export const configSettings: IConfigRouters = {
+    default: "/home",
+    defaultProps: "default",
+    genericHooks,
+    hash: "#!",
     notFound: true,
-    hash: '#!',
-    notFoundPath: '/not-found',
+    notFoundPath: "/not-found",
+    rootPath: "http://localhost:9876/",
     routers: [{
-        path: '/home',
         page: testPage1,
+        path: "/home",
         routers: [{
-            path: '/child/:number',
+            alias: "child",
+            hooks,
             page: testPage2,
-            alias: 'child',
-            hooks: hooks,
+            path: "/child/:number",
             routers: [{
-                path: '/child2/:word',
-                alias: 'grandchild',
-                page: testPage3
-            }]
-        },{
-            path: '/brother',
-            defaultProps: 'my own prop',
-            page: testPage4
-        }]
+                alias: "grandchild",
+                page: testPage3,
+                path: "/child2/:word",
+            }],
+        }, {
+            defaultProps: "my own prop",
+            page: testPage4,
+            path: "/brother",
+        }],
     },
     {
-        path: '/not-found',
-        page: notFound
-    }]
+        page: notFound,
+        path: "/not-found",
+    }],
+    useHash: true,
 };
