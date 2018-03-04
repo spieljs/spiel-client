@@ -26,7 +26,7 @@ export class Router {
      * It set all the path config with additionals settings
      * @param configRouters  router settings
      * @return Router object
-     * @see <a href="../interfaces/_helpers_interfaces_.configrouters.html">ConfigRouters</a>
+     * @see <a href="../interfaces/_helpers_interfaces_.iconfigrouters.html">IConfigRouters</a>
      */
     public setRouters(configRouters?: IConfigRouters): Router {
         this.configRouters = configRouters || {};
