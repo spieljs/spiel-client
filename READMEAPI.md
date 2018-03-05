@@ -1,6 +1,7 @@
 # Spiel Client
 
-Spiel client is a flexible and light frontend framework to make easier create a complex and modern applications for the client side. It joins two light but powerful libraries: [Ultradom](https://github.com/jorgebucaran/ultradom) and [Navigo](https://github.com/krasimir/navigo).
+[![Travis CI](https://travis-ci.org/spieljs/spiel-client.svg?branch=master)](https://travis-ci.org/spieljs/spiel-client)
+[![npm](https://img.shields.io/npm/v/spiel-client.svg)](https://www.npmjs.org/package/spiel-client)
 
 ## How use it
 
