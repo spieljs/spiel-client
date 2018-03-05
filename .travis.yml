@@ -6,13 +6,9 @@ node_js:
 env:
   - NODE_ENV=development
 
-before_install:
-  - npm i -g codecov
-
 install:
   - npm install
 
 script:
   - npm test
   - npm run lint
-  - codecov
