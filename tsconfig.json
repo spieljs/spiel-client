@@ -11,7 +11,7 @@
 		"experimentalDecorators": true,
 		"declaration": true,
 		"jsx": "react",
-		"jsxFactory": "createNode",
+		"jsxFactory": "h",
 		"outDir": "./lib",
 		"rootDir": ".",
 		"sourceMap": true

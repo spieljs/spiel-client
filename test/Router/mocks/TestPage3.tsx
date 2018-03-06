@@ -1,4 +1,4 @@
-import {createNode, JSXElements, render, srouter, State } from "../../../src";
+import {h, JSXElements, render, srouter, State } from "../../../src";
 
 export class TestPage3 {
     public state = {

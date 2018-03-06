@@ -1,12 +1,12 @@
 import { assert, expect } from "chai";
-import { createNode as u, patch, VNode} from "../../src";
+import { h, patch, VNode} from "../../src";
 
 import {componentTest} from "./mocks";
 
 describe("Component", () => {
     let nodes: VNode<any>;
     before(() => {
-        nodes = u(componentTest.view, componentTest.state);
+        nodes = h(componentTest.view, componentTest.state);
     });
     it("has to be created", () => {
         const text: any = nodes.children.find((node: any) => node.nodeName === "span");

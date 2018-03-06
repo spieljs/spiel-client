@@ -1,6 +1,6 @@
 import Navigo = require("navigo");
 import { render, State} from "spiel-render";
-import { createNode as u, patch } from "ultradom";
+import { h, patch } from "ultradom";
 import { Handler, IConfigRouters, IHooks, IRouters, IRoutersHandler, Params } from "./helpers";
 
 /**
@@ -78,7 +78,7 @@ export class Router {
 
     private createRootElement() {
         const rootElement = document.getElementById(this.root);
-        const node = u("div", {});
+        const node = h("div", {});
         if (!rootElement) {
             const elm = document.createElement("div");
             elm.setAttribute("id", this.root);

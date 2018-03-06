@@ -1,5 +1,5 @@
 import { assert, expect } from "chai";
-import { createNode as u, patch, render, srouter, State, VNode} from "../../src";
+import { patch, render, srouter, State, VNode} from "../../src";
 
 import { configDefault, configSettings } from "./configs";
 import { testPage1 } from "./mocks/TestPage1";
