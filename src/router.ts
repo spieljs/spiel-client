@@ -50,6 +50,7 @@ export class Router {
     /**
      * It goes to the path indicated
      * @param path Path of the route, example: /example
+     * @param state Allow to pass object by url and recover it with lastState state property
      * @param absolute True allow to pass absolute path
      * @example router.go("http://localhost/example", true)
      */

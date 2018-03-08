@@ -84,6 +84,35 @@ const router = srouter.router;
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
+### pass object by url
+
+You can pass object with `srouter.go` and recover it with `lastState` state property:
+
+```tsx
+export class TestPage4 {
+    public state = {
+        title: "Hello brother",
+    };
+
+    public view(state: State): JSXElements {
+        return (
+            <div>
+                <h1>{state.title}</h1>
+                <h2>{state.lastState}</h2>
+                <button
+                    onclick ={() => {
+                        state.title = "Yes brother";
+                        srouter.go("/home/brother", {title: state.title});
+                        render(testPage4.view, state);
+                    }}
+                >Change Title</button>
+                <a href="/home" data-navigo>go to root</a>
+            </div>
+        );
+    }
+}
+```
+
 #### Set your generic hooks for all the routes:
 
 ```typescript
