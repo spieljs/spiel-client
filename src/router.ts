@@ -53,6 +53,8 @@ export class Router {
      * @param state Allow to pass object by url and recover it with lastState state property
      * @param absolute True allow to pass absolute path
      * @example router.go("http://localhost/example", true)
+     * @see <a href='https://github.com/spieljs/spiel-client/tree/ultradom-proxy#pass-object-by-url' target="_blank">
+     * Pass object by url</a>
      */
     public go(path: string, state?: object | null, absolute?: boolean) {
         if (state) {

@@ -138,6 +138,31 @@ srouter.setRouters(configDefault).resolve();
 <span class="hljs-keyword">const</span> router = srouter.router;
 <span class="hljs-built_in">console</span>.log(router.generate(<span class="hljs-string">'user'</span>, {id: <span class="hljs-number">4</span>})); <span class="hljs-comment">// #/user/4</span>
 </code></pre>
+				<h3 id="pass-object-by-url">Pass object by url</h3>
+				<p>You can pass object with <code>srouter.go</code> and recover it with <code>lastState</code> state property:</p>
+				<pre><code class="lang-tsx">export class TestPage4 {
+    public state = {
+        title: &quot;Hello brother&quot;,
+    };
+
+    public view(state: State): JSXElements {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;{state.title}&lt;/h1&gt;
+                &lt;h2&gt;{state.lastState}&lt;/h2&gt;
+                &lt;button
+                    onclick ={() =&gt; {
+                        state.title = &quot;Yes brother&quot;;
+                        srouter.go(&quot;/home/brother&quot;, {title: state.title});
+                        render(testPage4.view, state);
+                    }}
+                &gt;Change Title&lt;/button&gt;
+                &lt;a href=&quot;/home&quot; data-navigo&gt;go to root&lt;/a&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
 				<h4 id="set-your-generic-hooks-for-all-the-routes-">Set your generic hooks for all the routes:</h4>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> genericHooks: IGenericHooks = {
     after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {

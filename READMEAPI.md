@@ -84,7 +84,7 @@ const router = srouter.router;
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
-### pass object by url
+### Pass object by url
 
 You can pass object with `srouter.go` and recover it with `lastState` state property:
 
