@@ -1,4 +1,4 @@
-import {createNode, JSXElements, render, srouter, State } from "../../../src";
+import {h, JSXElements, render, srouter, State } from "../../../src";
 
 export class TestPage1 {
     public state = {
@@ -17,7 +17,7 @@ export class TestPage1 {
                 >go to child</button>
                 <button id="grandchild"
                     onclick = {() => {
-                        srouter.go("/home/child/2/child2/test?state=good");
+                        srouter.go("/home/child/2/child2/test?query=really", {text: "good"});
                     }}
                 >go to child 2</button>
                 <button id="brother"

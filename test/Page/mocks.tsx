@@ -1,4 +1,4 @@
-import { createNode, IPage, render, State, VNode} from "../../src";
+import { h, IPage, render, State, VNode} from "../../src";
 
 export class PageTest implements IPage {
     public state: State = {

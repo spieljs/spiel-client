@@ -29,7 +29,7 @@ module.exports = function(config) {
                 "experimentalDecorators": true,
                 "declaration": true,
                 "jsx": "react",
-                "jsxFactory": "createNode",
+                "jsxFactory": "h",
                 "sourceMap": true
             }
         },

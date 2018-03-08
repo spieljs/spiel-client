@@ -138,6 +138,31 @@ srouter.setRouters(configDefault).resolve();
 <span class="hljs-keyword">const</span> router = srouter.router;
 <span class="hljs-built_in">console</span>.log(router.generate(<span class="hljs-string">'user'</span>, {id: <span class="hljs-number">4</span>})); <span class="hljs-comment">// #/user/4</span>
 </code></pre>
+				<h3 id="pass-object-by-url">Pass object by url</h3>
+				<p>You can pass object with <code>srouter.go</code> and recover it with <code>lastState</code> state property:</p>
+				<pre><code class="lang-tsx">export class TestPage4 {
+    public state = {
+        title: &quot;Hello brother&quot;,
+    };
+
+    public view(state: State): JSXElements {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;{state.title}&lt;/h1&gt;
+                &lt;h2&gt;{state.lastState}&lt;/h2&gt;
+                &lt;button
+                    onclick ={() =&gt; {
+                        state.title = &quot;Yes brother&quot;;
+                        srouter.go(&quot;/home/brother&quot;, {title: state.title});
+                        render(testPage4.view, state);
+                    }}
+                &gt;Change Title&lt;/button&gt;
+                &lt;a href=&quot;/home&quot; data-navigo&gt;go to root&lt;/a&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
 				<h4 id="set-your-generic-hooks-for-all-the-routes-">Set your generic hooks for all the routes:</h4>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> genericHooks: IGenericHooks = {
     after: <span class="hljs-function">(<span class="hljs-params">params: Params</span>) =&gt;</span> {
@@ -179,7 +204,7 @@ srouter.setRouters(configDefault).resolve();
 };
 </code></pre>
 				<h3 id="create-your-page-components">Create your page components</h3>
-				<pre><code class="lang-tsx">import { Children, createNode, IPage, JSXElements, srouter, State, VNode } from &quot;../../../src&quot;;
+				<pre><code class="lang-tsx">import { Children, h, IPage, JSXElements, srouter, State, VNode } from &quot;../../../src&quot;;
 
 interface IShow {
     value: string;
@@ -212,9 +237,9 @@ function Show({value, onGo}: IShow, children: Children) {
 
 export const page5 = new page5();
 </code></pre>
-				<p><strong>Note:</strong> you need to export the singleton of the class and always import <code>createNode</code> to render the views</p>
+				<p><strong>Note:</strong> you need to export the singleton of the class and always import <code>h</code> to render the views</p>
 				<p>To know more about the views see more in <a href="https://github.com/jorgebucaran/ultradom">ultradom</a>.
-				All the ultradom functionalities like <code>patch</code>, <code>createNode</code> etc... are available in spiel-client</p>
+				All the ultradom functionalities like <code>patch</code>, <code>h</code> etc... are available in spiel-client</p>
 				<h3 id="config-your-project">Config your project</h3>
 				<p>This is a tsconfig example:</p>
 				<pre><code class="lang-typescript">{
@@ -229,7 +254,7 @@ export const page5 = new page5();
         <span class="hljs-string">"outDir"</span>: <span class="hljs-string">"./lib"</span>,
         <span class="hljs-string">"rootDir"</span>: <span class="hljs-string">"."</span>,
         <span class="hljs-string">"jsx"</span>: <span class="hljs-string">"react"</span>,
-        <span class="hljs-string">"jsxFactory"</span>: <span class="hljs-string">"createNode"</span>
+        <span class="hljs-string">"jsxFactory"</span>: <span class="hljs-string">"h"</span>
     },
     <span class="hljs-string">"include"</span>: [
         <span class="hljs-string">"./src"</span>,
@@ -240,10 +265,10 @@ export const page5 = new page5();
     ]
 }
 </code></pre>
-				<p>Remember always to put <code>createNode</code> in the <code>jsxFactory</code> option.</p>
+				<p>Remember always to put <code>h</code> in the <code>jsxFactory</code> option.</p>
 				<h3 id="test-your-code">Test your code</h3>
 				<p>Create your mocks:</p>
-				<pre><code class="lang-typescript">import { Children, createNode, IPage, JSXElements, State, VNode } from "../../src";
+				<pre><code class="lang-typescript">import { Children, h, IPage, JSXElements, State, VNode } from "../../src";
 
 interface IShow {
     value: string;
@@ -277,14 +302,14 @@ export const componentTest = new ComponentTest();
 </code></pre>
 				<p>and your file spec:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { assert, expect } <span class="hljs-keyword">from</span> <span class="hljs-string">"chai"</span>;
-<span class="hljs-keyword">import</span> { createNode <span class="hljs-keyword">as</span> u, patch, VNode} <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src"</span>;
+<span class="hljs-keyword">import</span> { h, patch, VNode} <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src"</span>;
 
 <span class="hljs-keyword">import</span> {componentTest} <span class="hljs-keyword">from</span> <span class="hljs-string">"./mocks"</span>;
 
 describe(<span class="hljs-string">"Component"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     <span class="hljs-keyword">let</span> nodes: VNode&lt;<span class="hljs-built_in">any</span>&gt;;
     before(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-        nodes = u(componentTest.view, componentTest.state);
+        nodes = h(componentTest.view, componentTest.state);
     });
     it(<span class="hljs-string">"has to be created"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
         <span class="hljs-keyword">const</span> text: <span class="hljs-built_in">any</span> = nodes.children.find(<span class="hljs-function">(<span class="hljs-params">node: <span class="hljs-built_in">any</span></span>) =&gt;</span> node.nodeName === <span class="hljs-string">"span"</span>);
@@ -312,7 +337,7 @@ describe(<span class="hljs-string">"Component"</span>, <span class="hljs-functio
         <span class="hljs-attr">"outDir"</span>: <span class="hljs-string">"./lib"</span>,
         <span class="hljs-attr">"rootDir"</span>: <span class="hljs-string">"."</span>,
         <span class="hljs-attr">"jsx"</span>: <span class="hljs-string">"react"</span>,
-        <span class="hljs-attr">"jsxFactory"</span>: <span class="hljs-string">"createNode"</span>
+        <span class="hljs-attr">"jsxFactory"</span>: <span class="hljs-string">"h"</span>
     },
     <span class="hljs-attr">"include"</span>: [
         <span class="hljs-string">"./src"</span>,

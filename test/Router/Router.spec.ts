@@ -1,5 +1,5 @@
 import { assert, expect } from "chai";
-import { createNode as u, patch, render, srouter, State, VNode} from "../../src";
+import { patch, render, srouter, State, VNode} from "../../src";
 
 import { configDefault, configSettings } from "./configs";
 import { testPage1 } from "./mocks/TestPage1";
@@ -120,7 +120,7 @@ describe("Router", () => {
       setTimeout(() => {
         const title = document.getElementsByTagName("h1")[0];
         const defaultProps = document.getElementsByTagName("h2")[0];
-        expect(title.textContent).has.to.be.equal("Really test 4 state=good");
+        expect(title.textContent).has.to.be.equal("Really test 4 query=really good");
         expect(defaultProps.textContent).has.to.be.equal("default");
         srouter.go("/home");
         done();
@@ -241,7 +241,7 @@ describe("Router", () => {
       });
       srouter.router.resume();
       srouter.resolve();
-      srouter.go("http://localhost:9876/", true);
+      srouter.go("http://localhost:9876/", null, true);
       setTimeout(() => {
         const element = document.getElementsByTagName("h1")[0];
         expect(element.textContent).has.to.be.equal("Hello world");

@@ -1,6 +1,6 @@
 import Navigo = require("navigo");
 import { render, State} from "spiel-render";
-import { createNode as u, patch } from "ultradom";
+import { h, patch } from "ultradom";
 import { Handler, IConfigRouters, IHooks, IRouters, IRoutersHandler, Params } from "./helpers";
 
 /**
@@ -50,10 +50,18 @@ export class Router {
     /**
      * It goes to the path indicated
      * @param path Path of the route, example: /example
+     * @param state Allow to pass object by url and recover it with lastState state property
      * @param absolute True allow to pass absolute path
      * @example router.go("http://localhost/example", true)
+     * @see <a href='https://github.com/spieljs/spiel-client/tree/ultradom-proxy#pass-object-by-url' target="_blank">
+     * Pass object by url</a>
      */
-    public go(path: string, absolute?: boolean) {
+    public go(path: string, state?: object | null, absolute?: boolean) {
+        if (state) {
+            path = `${(path.indexOf("?") !== -1) ?
+                `${path}&` :
+                `${path}?`}state=${encodeURIComponent(JSON.stringify(state))}`;
+        }
         this.router.navigate(path, absolute);
     }
 
@@ -78,7 +86,7 @@ export class Router {
 
     private createRootElement() {
         const rootElement = document.getElementById(this.root);
-        const node = u("div", {});
+        const node = h("div", {});
         if (!rootElement) {
             const elm = document.createElement("div");
             elm.setAttribute("id", this.root);
@@ -115,11 +123,36 @@ export class Router {
     private setPatch(route: IRouters, params: object, query: string) {
         const page = route.page;
         const state: State = {};
+        if (query) {
+            state.lastState = this.checkState(query);
+        }
         Object.assign(state, page.state);
         state.params = params;
-        state.query = query;
+        state.query = this.checkQuery(query);
         state.defaultProps = route.defaultProps || this.defaultProps;
         render(page.view, state, this.element);
+    }
+
+    private checkQuery(query: string) {
+        if (query && query.indexOf("&state=") !== -1) {
+            query = query.substr(0, query.indexOf("&state="));
+        }
+
+        return query;
+    }
+
+    private checkState(query: string) {
+        let state: string | object = "";
+        const index = query.indexOf("state=");
+
+        if (index !== -1 ) {
+            state = query.substr(index);
+            state = decodeURIComponent(state);
+            state = state.replace("state=", "");
+            state = JSON.parse(state);
+        }
+
+        return state;
     }
 
     private checkNotFound() {

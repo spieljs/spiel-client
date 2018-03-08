@@ -1,4 +1,4 @@
-import {createNode, IPage, render, State} from "../../../src";
+import {h, IPage, render, State} from "../../../src";
 
 export class NotFound implements IPage {
     public state = {

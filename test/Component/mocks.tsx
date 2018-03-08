@@ -1,4 +1,4 @@
-import { Children, createNode, IPage, JSXElements, State, VNode } from "../../src";
+import { Children, h, IPage, JSXElements, State, VNode } from "../../src";
 
 interface IShow {
     value: string;

@@ -1,4 +1,4 @@
-import {createNode, JSXElements, render, srouter, State } from "../../../src";
+import {h, JSXElements, render, srouter, State } from "../../../src";
 
 export class TestPage3 {
     public state = {
@@ -8,7 +8,7 @@ export class TestPage3 {
     public view(state: State): JSXElements {
         return (
             <div>
-                <h1>{state.title} {state.params.word} {state.params.number} {state.query}</h1>
+                <h1>{state.title} {state.params.word} {state.params.number} {state.query} {state.lastState.text}</h1>
                 <h2>{state.defaultProps}</h2>
                 <button
                     onclick = {() => {

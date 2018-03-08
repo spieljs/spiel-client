@@ -92,6 +92,35 @@ const router = srouter.router;
 console.log(router.generate('user', {id: 4})); // #/user/4
 ```
 
+### Pass object by url
+
+You can pass object with `srouter.go` and recover it with `lastState` state property:
+
+```tsx
+export class TestPage4 {
+    public state = {
+        title: "Hello brother",
+    };
+
+    public view(state: State): JSXElements {
+        return (
+            <div>
+                <h1>{state.title}</h1>
+                <h2>{state.lastState}</h2>
+                <button
+                    onclick ={() => {
+                        state.title = "Yes brother";
+                        srouter.go("/home/brother", {title: state.title});
+                        render(testPage4.view, state);
+                    }}
+                >Change Title</button>
+                <a href="/home" data-navigo>go to root</a>
+            </div>
+        );
+    }
+}
+```
+
 #### Set your generic hooks for all the routes:
 
 ```typescript
@@ -140,7 +169,7 @@ export const hooks: IHooks = {
 ### Create your page components
 
 ```tsx
-import { Children, createNode, IPage, JSXElements, srouter, State, VNode } from "../../../src";
+import { Children, h, IPage, JSXElements, srouter, State, VNode } from "../../../src";
 
 interface IShow {
     value: string;
@@ -174,10 +203,10 @@ function Show({value, onGo}: IShow, children: Children) {
 export const page5 = new page5();
 ```
 
-**Note:** you need to export the singleton of the class and always import `createNode` to render the views
+**Note:** you need to export the singleton of the class and always import `h` to render the views
 
 To know more about the views see more in [ultradom](https://github.com/jorgebucaran/ultradom).
-All the ultradom functionalities like `patch`, `createNode` etc... are available in spiel-client
+All the ultradom functionalities like `patch`, `h` etc... are available in spiel-client
 
 ### Config your project
 
@@ -196,7 +225,7 @@ This is a tsconfig example:
         "outDir": "./lib",
         "rootDir": ".",
         "jsx": "react",
-        "jsxFactory": "createNode"
+        "jsxFactory": "h"
     },
     "include": [
         "./src",
@@ -208,14 +237,14 @@ This is a tsconfig example:
 }
 ```
 
-Remember always to put `createNode` in the `jsxFactory` option.
+Remember always to put `h` in the `jsxFactory` option.
 
 ### Test your code
 
 Create your mocks:
 
-```typescript
-import { Children, createNode, IPage, JSXElements, State, VNode } from "../../src";
+```tsx
+import { Children, h, IPage, JSXElements, State, VNode } from "../../src";
 
 interface IShow {
     value: string;
@@ -252,14 +281,14 @@ and your file spec:
 
 ```typescript
 import { assert, expect } from "chai";
-import { createNode as u, patch, VNode} from "../../src";
+import { h, patch, VNode} from "../../src";
 
 import {componentTest} from "./mocks";
 
 describe("Component", () => {
     let nodes: VNode<any>;
     before(() => {
-        nodes = u(componentTest.view, componentTest.state);
+        nodes = h(componentTest.view, componentTest.state);
     });
     it("has to be created", () => {
         const text: any = nodes.children.find((node: any) => node.nodeName === "span");
@@ -291,7 +320,7 @@ tsconfig.json:
 		"outDir": "./lib",
 		"rootDir": ".",
 		"jsx": "react",
-		"jsxFactory": "createNode"
+		"jsxFactory": "h"
 	},
 	"include": [
 		"./src",
