@@ -53,7 +53,12 @@ export class Router {
      * @param absolute True allow to pass absolute path
      * @example router.go("http://localhost/example", true)
      */
-    public go(path: string, absolute?: boolean) {
+    public go(path: string, state?: object | null, absolute?: boolean) {
+        if (state) {
+            path = `${(path.indexOf("?") !== -1) ?
+                `${path}&` :
+                `${path}?`}state=${encodeURIComponent(JSON.stringify(state))}`;
+        }
         this.router.navigate(path, absolute);
     }
 
@@ -115,11 +120,36 @@ export class Router {
     private setPatch(route: IRouters, params: object, query: string) {
         const page = route.page;
         const state: State = {};
+        if (query) {
+            state.lastState = this.checkState(query);
+        }
         Object.assign(state, page.state);
         state.params = params;
-        state.query = query;
+        state.query = this.checkQuery(query);
         state.defaultProps = route.defaultProps || this.defaultProps;
         render(page.view, state, this.element);
+    }
+
+    private checkQuery(query: string) {
+        if (query && query.indexOf("&state=") !== -1) {
+            query = query.substr(0, query.indexOf("&state="));
+        }
+
+        return query;
+    }
+
+    private checkState(query: string) {
+        let state: string | object = "";
+        const index = query.indexOf("state=");
+
+        if (index !== -1 ) {
+            state = query.substr(index);
+            state = decodeURIComponent(state);
+            state = state.replace("state=", "");
+            state = JSON.parse(state);
+        }
+
+        return state;
     }
 
     private checkNotFound() {
