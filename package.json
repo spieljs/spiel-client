@@ -28,14 +28,14 @@
     "dependencies": {
         "@types/navigo": "^7.0.0",
         "navigo": "^7.1.1",
-        "spiel-render": "^1.0.1",
+        "spiel-render": "^1.1.0",
         "typescript": "^2.7.2",
-        "ultradom": "^2.2.0"
+        "ultradom": "^2.3.0"
     },
     "devDependencies": {
         "@types/chai": "^4.1.2",
         "@types/mocha": "^2.2.48",
-        "@types/node": "^8.9.4",
+        "@types/node": "^8.9.5",
         "chai": "^4.1.2",
         "gulp": "^3.9.1",
         "gulp-typedoc": "^2.2.0",
