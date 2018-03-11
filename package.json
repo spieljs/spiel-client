@@ -1,6 +1,6 @@
 {
     "name": "spiel-client",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Frontend framework to make easier to write frontend applications",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -28,7 +28,7 @@
     "dependencies": {
         "@types/navigo": "^7.0.0",
         "navigo": "^7.1.1",
-        "spiel-render": "^1.1.0",
+        "spiel-render": "^1.1.1",
         "typescript": "^2.7.2",
         "ultradom": "^2.3.0"
     },
