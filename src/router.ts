@@ -48,6 +48,34 @@ export class Router {
     }
 
     /**
+     * Build routers
+     * @param configRouters Object that contains all the routers
+     * @param parentPath the path of the parent router
+     */
+    public build(configRouters: IRouters[], parentPath?: string) {
+        configRouters.forEach((router, index) => {
+            if (parentPath) {
+                router.path = `${parentPath}${router.path}`;
+            }
+            if (router.alias) {
+                this.router.on(router.path, {
+                    as: router.alias, uses: (params, query) => {
+                        this.setPatch(router, params, query);
+                    },
+                }, router.hooks);
+            } else {
+
+                this.router.on(router.path, (params, query) => {
+                    this.setPatch(router, params, query);
+                }, router.hooks);
+            }
+            if (router.routers) {
+                this.build(router.routers, router.path);
+            }
+        });
+    }
+
+    /**
      * It goes to the path indicated
      * @param path Path of the route, example: /example
      * @param state Allow to pass object by url and recover it with lastState state property
@@ -95,29 +123,6 @@ export class Router {
         } else {
             this.element = patch(node, document.getElementById(this.root));
         }
-    }
-
-    private build(configRouters: IRouters[], parentPath?: string) {
-        configRouters.forEach((router, index) => {
-            if (parentPath) {
-                router.path = `${parentPath}${router.path}`;
-            }
-            if (router.alias) {
-                this.router.on(router.path, {
-                    as: router.alias, uses: (params, query) => {
-                        this.setPatch(router, params, query);
-                    },
-                }, router.hooks);
-            } else {
-
-                this.router.on(router.path, (params, query) => {
-                    this.setPatch(router, params, query);
-                }, router.hooks);
-            }
-            if (router.routers) {
-                this.build(router.routers, router.path);
-            }
-        });
     }
 
     private setPatch(route: IRouters, params: object, query: string) {
